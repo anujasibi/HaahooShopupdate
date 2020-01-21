@@ -358,40 +358,40 @@ public class edit_product extends AppCompatActivity {
                 public void onResponse(Call call, Response response) {
                     dialogs.dismiss();
                     Toast.makeText(context, "Successfully updated", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(context,viewproduct.class));
-//                    AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
-//                    builder1.setMessage("Do you want to edit your added product specification??");
-//                    builder1.setCancelable(true);
-//
-//                    builder1.setPositiveButton(
-//                            "Yes",
-//                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int id) {
-//                                    dialog.cancel();
-//                                    Intent intent=new Intent(edit_product.this,editcategory.class);
-//                                    intent.putExtra("id",ids);
-//                                    intent.putExtra("catid",catid);
-//                                    intent.putExtra("display",display);
-//                                    sessionManager.setdisplay(display);
-//                                    Log.d("gcvghvgjhj",sessionManager.getdisplay());
-//                                    intent.putExtra("memory",memory);
-//                                    sessionManager.setmemory(memory);
-//                                    Log.d("gcvghvgjhj",sessionManager.getmemory());
-//                                    startActivity(intent);
-//                                }
-//                            });
-//
-//                    builder1.setNegativeButton(
-//                            "No",
-//                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int id) {
-//                                    dialog.cancel();
-//                                    startActivity(new Intent(context,viewproduct.class));
-//                                }
-//                            });
-//
-//                    AlertDialog alert11 = builder1.create();
-//                    alert11.show();
+                   // startActivity(new Intent(context,viewproduct.class));
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                    builder1.setMessage("Do you want to edit your added product specification??");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Yes",
+                           new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    Intent intent=new Intent(edit_product.this,editcategory.class);
+                                    intent.putExtra("id",ids);
+                                    intent.putExtra("catid",catid);
+                                    intent.putExtra("display",display);
+                                    sessionManager.setdisplay(display);
+                                    Log.d("gcvghvgjhj",sessionManager.getdisplay());
+                                    intent.putExtra("memory",memory);
+                                    sessionManager.setmemory(memory);
+                                    Log.d("gcvghvgjhj",sessionManager.getmemory());
+                                    startActivity(intent);
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    startActivity(new Intent(context,viewproduct.class));
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
                 }
 
                 @Override

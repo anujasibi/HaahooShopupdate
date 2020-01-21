@@ -44,6 +44,12 @@
             android:icon="@drawable/qr"
             android:title="Shop QR" />
 
+        <item
+            android:id="@+id/editcat"
+            android:icon="@drawable/cat"
+            android:title="Edit Your Category" />
+
+
 
 
     </group>

@@ -69,16 +69,19 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
 
         id=dataModelArrayList.get(position).getId();
         holder.statuss.setText(dataModelArrayList.get(position).getStatus());
+        holder.pay.setText(dataModelArrayList.get(position).getPay());
 
         if(dataModelArrayList.get(position).getStatus().equals("Accepted")){
             holder.sta.setVisibility(View.GONE);
             holder.sta1.setVisibility(View.GONE);
+            holder.pay.setVisibility(View.GONE);
             holder.statuss.setVisibility(View.VISIBLE);
             holder.status.setVisibility(View.VISIBLE);
         }
         if(dataModelArrayList.get(position).getStatus().equals("Rejected")){
             holder.sta.setVisibility(View.GONE);
             holder.sta1.setVisibility(View.GONE);
+            holder.pay.setVisibility(View.GONE);
             holder.statuss.setVisibility(View.VISIBLE);
             holder.status.setVisibility(View.VISIBLE);
           //  holder.cardView.setVisibility(View.GONE);
@@ -227,7 +230,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, location;
+        TextView name, location,pay;
        // LinearLayout linearLayout;
         ImageView iv;
         CardView cardView;
@@ -247,6 +250,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
             sta1  = (SlideToActView) itemView.findViewById(R.id.examplen);
             status=itemView.findViewById(R.id.status);
             statuss=itemView.findViewById(R.id.statuse);
+            pay=itemView.findViewById(R.id.paye);
 //            qty = (TextView) itemView.findViewById(R.id.non);
         }
 

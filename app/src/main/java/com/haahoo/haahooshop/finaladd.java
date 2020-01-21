@@ -47,7 +47,7 @@ public class finaladd extends AppCompatActivity {
     //String URL="https://testapi.creopedia.com/api_shop_app/list_shop_cat/ ";
     //String URL="https://haahoo.in/api_shop_app/list_shop_cat/ ";
     String URL= Global.BASE_URL+"api_shop_app/list_shop_cat/ ";
-    CheckBox checkBox1,checkBox2,checkBox3,check,checkm,checks1,checks2;
+    CheckBox checkBox1,checkBox2,checkBox3,checkBox4,check,checkm,checks1,checks2;
     private RadioGroup radioSexGroup;
     private RadioButton one,two,three;
     SessionManager sessionManager;
@@ -81,6 +81,7 @@ public class finaladd extends AppCompatActivity {
         checkBox1 = findViewById(R.id.checkBox);
         checkBox2 = findViewById(R.id.checkBox1);
         checkBox3 = findViewById(R.id.checkBox2);
+        checkBox4 = findViewById(R.id.checkBox3);
         check=findViewById(R.id.checkBo);
         checkm=findViewById(R.id.checkBo1);
         checks1=findViewById(R.id.checkBot);
@@ -152,6 +153,7 @@ public class finaladd extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     checkBox2.setChecked(false);
                     checkBox3.setChecked(false);
+                    checkBox4.setChecked(false);
                     delivery_type = checkBox1.getText().toString();
                     sessionManager.setcheck(delivery_type);
                  //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
@@ -165,6 +167,7 @@ public class finaladd extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     checkBox1.setChecked(false);
                     checkBox3.setChecked(false);
+                    checkBox4.setChecked(false);
                     delivery_type = checkBox2.getText().toString();
                     sessionManager.setcheck(delivery_type);
                  //   Toast.makeText(finaladd.this,"bhnjv"+checkBox2.getText().toString(),Toast.LENGTH_SHORT).show();
@@ -179,9 +182,25 @@ public class finaladd extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     checkBox1.setChecked(false);
                     checkBox2.setChecked(false);
+                    checkBox4.setChecked(false);
                     delivery_type = checkBox3.getText().toString();
                     sessionManager.setcheck(delivery_type);
                 //    Toast.makeText(finaladd.this,"bhnjv"+checkBox3.getText().toString(),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+        checkBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (((CheckBox) view).isChecked()) {
+                    checkBox1.setChecked(false);
+                    checkBox2.setChecked(false);
+                    checkBox3.setChecked(false);
+                    delivery_type = checkBox4.getText().toString();
+                    sessionManager.setcheck(delivery_type);
+                    //    Toast.makeText(finaladd.this,"bhnjv"+checkBox3.getText().toString(),Toast.LENGTH_SHORT).show();
 
                 }
             }

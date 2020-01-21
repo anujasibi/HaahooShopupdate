@@ -56,7 +56,7 @@ public class addprod extends AppCompatActivity {
         pincode=findViewById(R.id.pincode);
         stock=findViewById(R.id.stock);
         save = findViewById(R.id.save);
-        //incent=findViewById(R.id.incent);
+        incent=findViewById(R.id.incen);
         imageView3=findViewById(R.id.imageView3);
 
         imageView3.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +86,8 @@ public class addprod extends AppCompatActivity {
                     Log.d("name", "mm" + sessionManager.getstock());
                     sessionManager.setdes(des.getText().toString());
                     Log.d("name", "mm" + sessionManager.getdes());
-                  //  sessionManager.setincent(incent.getText().toString());
-                //    Log.d("name", "mm" + sessionManager.getincent());
+                    sessionManager.setincent(incent.getText().toString());
+                    Log.d("name", "mm" + sessionManager.getincent());
                     startActivity(new Intent(addprod.this, finaladd.class));
                 }
             }

@@ -157,6 +157,7 @@ public class Tab2Fragment extends Fragment {
                                 playerModel.setPincode(dataobj.optString("pin"));
                                 playerModel.setPrice(dataobj.optString("pdt_price"));
                                 playerModel.setStatus(dataobj.optString("status"));
+                                playerModel.setPay(dataobj.optString("pay_method"));
 
 
 

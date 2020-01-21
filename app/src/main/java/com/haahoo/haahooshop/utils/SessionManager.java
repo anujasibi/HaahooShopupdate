@@ -349,6 +349,14 @@ public class SessionManager {
         sharedPreferences.edit().putString("pincode",pincode).commit();
     }
 
+    public String getupiid(){
+
+        return  sharedPreferences.getString("upiid","");
+    }
+    public void setupiid(String upiid){
+        sharedPreferences.edit().putString("upiid",upiid).commit();
+    }
+
 
 
 }

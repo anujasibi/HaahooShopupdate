@@ -13,6 +13,7 @@ public class Global {
     public static ArrayList<String> discount = new ArrayList<>();
     public static String price="null";
  public static  ArrayList<ArrayList<String>> row = new ArrayList<ArrayList<String>>();
+   public static  ArrayList<ArrayList<String>> row1 = new ArrayList<ArrayList<String>>();
     public static String total="0";
     public static boolean flag = false;
     public static ArrayList<String>spec_headers = new ArrayList<>();

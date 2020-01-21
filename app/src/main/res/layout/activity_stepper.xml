@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Shop Details"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="20dp"
@@ -29,7 +29,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="650dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
@@ -142,6 +142,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_below="@+id/cgs"
+                android:id="@+id/upi"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="20dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/upiid"
+                        android:layout_marginStart="10dp"
+                        android:background="@null"
+                        android:hint="Enter UPI ID (Optional)"
+                        android:layout_marginLeft="10dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@+id/cad"
                 android:id="@+id/pin"
                 android:layout_marginEnd="20dp"
@@ -199,7 +227,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginStart="33dp"
                 android:layout_marginEnd="3dp"
-                android:layout_below="@+id/cgs"
+                android:layout_below="@+id/upi"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
                 android:id="@+id/lk"

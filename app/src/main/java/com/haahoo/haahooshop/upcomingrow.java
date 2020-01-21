@@ -16,6 +16,16 @@ public class upcomingrow {
     public String price;
     public String status;
 
+    public String getPay() {
+        return pay;
+    }
+
+    public void setPay(String pay) {
+        this.pay = pay;
+    }
+
+    public String pay;
+
 
     public String getImage() {
         return image;

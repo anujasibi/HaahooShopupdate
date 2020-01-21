@@ -90,12 +90,39 @@
                 />
 
 
+            <TextView
+                android:id="@+id/pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/desc"
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/profile_image"
+                android:text="Payment Status :  "
+                android:textAlignment="center"
+                android:textColor="#000"
+                />
+            <TextView
+                android:id="@+id/paye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/desc"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/pay"
+                android:text="Status "
+                android:textAlignment="center"
+                android:textColor="#000"
+                />
+
+
             <com.ncorti.slidetoact.SlideToActView
                 android:id="@+id/example"
                 android:layout_width="match_parent"
                 app:outer_color="#008000"
 
-                android:layout_below="@+id/desc"
+                android:layout_below="@+id/pay"
                 android:layout_toEndOf="@+id/profile_image"
                 android:layout_marginTop="20dp"
                 app:slider_height="30dp"

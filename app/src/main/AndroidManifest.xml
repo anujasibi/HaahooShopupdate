@@ -20,7 +20,9 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CODOTP"></activity>
+        <activity android:name=".chooseeditcat"></activity>
+        <activity android:name=".editmaincate" />
+        <activity android:name=".CODOTP" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -111,11 +113,11 @@
         <activity android:name=".ViewBranches" />
         <activity android:name=".AddEmployee" />
         <activity android:name=".AddShopBranch" />
-<!--
+        <!--
   <meta-data
         android:name="com.razorpay.ApiKey"
         android:value="rzp_live_MquWTYi6ypIVBE" />
--->
+        -->
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_Sc2QOgXEJcedKm" />

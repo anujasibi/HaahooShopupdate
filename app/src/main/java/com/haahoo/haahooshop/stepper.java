@@ -45,7 +45,7 @@ import java.util.ArrayList;
 
 public class stepper extends AppCompatActivity {
     Activity activity = this;
-    EditText shopname,owner,gstno,phone,email,password,distance,pinc;
+    EditText shopname,owner,gstno,phone,email,password,distance,pinc,upi;
     EditText address;
     TextView submit,show,hide;
     String device_id = null;
@@ -93,6 +93,7 @@ public class stepper extends AppCompatActivity {
 
         shopname=findViewById(R.id.shopname);
 
+        upi=findViewById(R.id.upiid);
         owner=findViewById(R.id.owner);
         pinc=findViewById(R.id.pinc);
         gstno=findViewById(R.id.gst);
@@ -250,6 +251,7 @@ public class stepper extends AppCompatActivity {
                     sessionManager.setlat(source_lat);
                     sessionManager.setlog(source_lng);
                     sessionManager.setpincode(pinc.getText().toString());
+                    sessionManager.setupiid(upi.getText().toString());
 
                     Log.d("cvgbnm","mmm"+sessionManager.getshopname());
                     Log.d("cvgbnm","mmm"+sessionManager.getown());
@@ -258,11 +260,30 @@ public class stepper extends AppCompatActivity {
                     Log.d("cvgbnm","mmm"+sessionManager.getdis());
                     Log.d("cvgbnm","mmm"+sessionManager.getlat());
                     Log.d("cvgbnm","mmm"+sessionManager.getlog());
+                    Log.d("cvgbnm","mmm"+sessionManager.getupiid());
                     startActivity(new Intent(context,shpcategory.class));
                 }
 
 
               if(!(source_lng.equals("0")||source_lat.equals("0"))) {
+                  sessionManager.setshopname(shopname.getText().toString());
+                  sessionManager.setown(owner.getText().toString());
+                  sessionManager.setgst(gstno.getText().toString());
+                  sessionManager.setadd(address.getText().toString());
+                  sessionManager.setdis(idsp);
+                  sessionManager.setlat(source_lat);
+                  sessionManager.setlog(source_lng);
+                  sessionManager.setpincode(pinc.getText().toString());
+                  sessionManager.setupiid(upi.getText().toString());
+
+                  Log.d("cvgbnm","mmm"+sessionManager.getshopname());
+                  Log.d("cvgbnm","mmm"+sessionManager.getown());
+                  Log.d("cvgbnm","mmm"+sessionManager.getgst());
+                  Log.d("cvgbnm","mmm"+sessionManager.getadd());
+                  Log.d("cvgbnm","mmm"+sessionManager.getdis());
+                  Log.d("cvgbnm","mmm"+sessionManager.getlat());
+                  Log.d("cvgbnm","mmm"+sessionManager.getlog());
+                  Log.d("cvgbnm","mmm"+sessionManager.getupiid());
                   Intent intent = new Intent(context, MapsActivity.class);
                   intent.putExtra("lat", source_lat);
                   intent.putExtra("long", source_lng);

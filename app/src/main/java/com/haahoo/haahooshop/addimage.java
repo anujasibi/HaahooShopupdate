@@ -551,8 +551,10 @@ public class addimage extends AppCompatActivity {
         Log.d("resell","mm"+sessionManager.gettype());
         RequestBody myshop = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getaddshop() );
         Log.d("resell","mm"+sessionManager.gettype());
+        RequestBody incentive = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getincent());
+        Log.d("resell","mm"+sessionManager.getincent());
         //
-        Call call = uploadAPIs.uploadImage("Token "+sessionManager.getTokens(),part,pdt_name,pdt_cat_id,pdt_spec,pdt_price,pdt_return_period,pdt_discount,stock,pdt_description,delivery_mode,distance,type,resell,max_price,subscription,sub_mode,product_owner,myshop);
+        Call call = uploadAPIs.uploadImage("Token "+sessionManager.getTokens(),part,pdt_name,pdt_cat_id,pdt_spec,pdt_price,pdt_return_period,pdt_discount,stock,pdt_description,delivery_mode,distance,type,resell,max_price,subscription,sub_mode,product_owner,myshop,incentive);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

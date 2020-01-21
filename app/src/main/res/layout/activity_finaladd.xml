@@ -125,21 +125,28 @@
                         android:layout_marginTop="10dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Online Delivery" />
+                        android:text="Online Mart" />
 
                     <CheckBox
                         android:id="@+id/checkBox1"
                         android:layout_width="130dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
-                        android:text="Offline Delivery" />
+                        android:text="Shop Mart" />
 
                     <CheckBox
                         android:id="@+id/checkBox2"
                         android:layout_width="130dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
-                        android:text="Both" />
+                        android:text="Both Mart" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:text="Pick from Shop" />
 
 
 
