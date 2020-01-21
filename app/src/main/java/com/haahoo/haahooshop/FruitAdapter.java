@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 
 import org.json.JSONArray;
@@ -112,6 +113,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyViewHolder
         JSONArray jsonObject=new JSONArray(Arrays.asList(array));
         Log.d("hjvhjv","kjbkjb"+jsonObject);
         sessionManager.setcat(jsonObject.toString());
+        Global.trr.add(jsonObject.toString());
         Log.d("hjvhjv","kjbkjb"+sessionManager.getcat());
 
        /* try{

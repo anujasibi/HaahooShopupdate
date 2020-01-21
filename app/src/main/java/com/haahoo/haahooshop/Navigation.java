@@ -461,7 +461,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                         break;
 
                     case R.id.editcat:
-                        startActivity(new Intent(Navigation.this,editmaincate.class));
+                        startActivity(new Intent(Navigation.this,chooseeditcat.class));
                         break;
 
 

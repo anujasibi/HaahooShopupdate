@@ -69,7 +69,14 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
 
         id=dataModelArrayList.get(position).getId();
         holder.statuss.setText(dataModelArrayList.get(position).getStatus());
-        holder.pay.setText(dataModelArrayList.get(position).getPay());
+
+        if(dataModelArrayList.get(position).getPay().equals("0")){
+            holder.pay.setText("Not Done");
+        }
+        if(dataModelArrayList.get(position).getPay().equals("1")){
+            holder.pay.setText("Done");
+        }
+
 
         if(dataModelArrayList.get(position).getStatus().equals("Accepted")){
             holder.sta.setVisibility(View.GONE);

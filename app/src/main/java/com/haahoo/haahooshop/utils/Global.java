@@ -20,6 +20,7 @@ public class Global {
     public static ArrayList<String>value = new ArrayList<>();
     public static ArrayList<String>spec_values = new ArrayList<>();
     public static ArrayList<String>ik = new ArrayList<>();
+    public static ArrayList<String>trr = new ArrayList<>();
     public static List<Specpojo> specpojos = new ArrayList<>();
 
     public static String name;

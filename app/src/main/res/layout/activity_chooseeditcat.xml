@@ -74,6 +74,20 @@
                     android:layout_marginTop="16dp"
                     />
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Add New Category"
+                    android:background="#5C25B7"
+                    android:layout_marginTop="50dp"
+                    android:layout_margin="30dp"
+                    android:textColor="#fff"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
+                    android:id="@+id/add"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
