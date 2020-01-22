@@ -430,7 +430,7 @@ public class addshopim extends AppCompatActivity {
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                    Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
                     Log.d("recyfvggbhh","mm"+response);
 
                 }
@@ -476,7 +476,7 @@ public class addshopim extends AppCompatActivity {
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                    Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
                     Log.d("recyfvggbhh","mm"+response);
 
                 }

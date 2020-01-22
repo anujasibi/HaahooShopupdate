@@ -3,12 +3,13 @@ package com.haahoo.haahooshop.utils;
 import com.haahoo.haahooshop.Specpojo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Global {
 
-  public static String BASE_URL = "https://testapi.creopedia.com/";
- //  public static String BASE_URL = "https://haahoo.in/";
+ // public static String BASE_URL = "https://testapi.creopedia.com/";
+  public static String BASE_URL = "https://haahoo.in/";
     public static String category = "null";
     public static ArrayList<String> discount = new ArrayList<>();
     public static String price="null";
@@ -21,7 +22,9 @@ public class Global {
     public static ArrayList<String>spec_values = new ArrayList<>();
     public static ArrayList<String>ik = new ArrayList<>();
     public static ArrayList<String>trr = new ArrayList<>();
+    public static ArrayList<String>lis = new ArrayList<>();
     public static List<Specpojo> specpojos = new ArrayList<>();
+    public static HashMap<String,String> hashmap = new HashMap<String,String>();
 
     public static String name;
     public static String image;

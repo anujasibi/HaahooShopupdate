@@ -120,6 +120,7 @@ public class chooseeditcat extends AppCompatActivity {
                         String country=jsonObject1.getString("name");
                         String id=jsonObject1.getString("id");
                         idn.add(id);
+                        Global.hashmap.put("categoryfirst"+String.valueOf(i),id);
                         Log.d("ghjklkj","mm"+idn);
                         Global.trr=idn;
                         playerModel.setName(country);

@@ -113,16 +113,17 @@
         <activity android:name=".ViewBranches" />
         <activity android:name=".AddEmployee" />
         <activity android:name=".AddShopBranch" />
-        <!--
   <meta-data
         android:name="com.razorpay.ApiKey"
         android:value="rzp_live_MquWTYi6ypIVBE" />
-        -->
-        <meta-data
+        <!--<meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_Sc2QOgXEJcedKm" />
+            android:value="rzp_test_Sc2QOgXEJcedKm" />-->
 
-        <activity android:name=".addproductnew" />
+        <activity android:name=".addproductnew"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity android:name=".Payment" />
         <activity android:name=".editcategory" />
         <activity android:name=".edit_product" />

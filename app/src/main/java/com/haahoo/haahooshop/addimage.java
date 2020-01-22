@@ -325,10 +325,10 @@ public class addimage extends AppCompatActivity {
                     uri = data.getData();
                     listOfImagesPath.add((getRealPathFromURIPath(uri, addimage.this)));
                     try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                       Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
                         bitmap = getResizedBitmap(bitmap, 400);
                        // String path = saveImage(bitmap);
-                        Toast.makeText(addimage.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(addimage.this, "Image Saved!", Toast.LENGTH_SHORT).show();
                         grid.setAdapter(new ImageListAdapter(this, listOfImagesPath));
                         Log.d("IMafggvGASVS","MM"+listOfImagesPath.size());
                    //     submituser();

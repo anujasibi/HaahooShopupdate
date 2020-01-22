@@ -44,10 +44,10 @@
             android:icon="@drawable/qr"
             android:title="Shop QR" />
 
-        <item
+      <!--  <item
             android:id="@+id/editcat"
             android:icon="@drawable/cat"
-            android:title="Edit Your Category" />
+            android:title="Edit Your Category" />-->
 
 
 

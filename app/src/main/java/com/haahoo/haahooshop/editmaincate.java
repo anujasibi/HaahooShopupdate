@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 
@@ -48,7 +49,7 @@ public class editmaincate extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<FruitModel> imageModelArrayList;
-    private FruitAdapter adapter;
+    private editmaincategoryadapter adapter;
     shpcategoryadapter shpcategoryadapter;
     private int[] myImageList = new int[]{R.drawable.person, R.drawable.person,R.drawable.person, R.drawable.person,R.drawable.person,R.drawable.person,R.drawable.person};
     private String[] myImageNameList = new String[]{"Apple","Mango" ,"Strawberry","Pineapple","Orange","Blueberry","Watermelon"};
@@ -81,7 +82,7 @@ public class editmaincate extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
         //  imageModelArrayList =   eatFruits();
-        adapter = new FruitAdapter(this, list,id);
+        adapter = new editmaincategoryadapter(this, list,id);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
@@ -126,6 +127,13 @@ public class editmaincate extends AppCompatActivity {
                 //      Toast.makeText(context,"clck",Toast.LENGTH_SHORT).show();
 //                list2.add(list1.get(position));
                 showphones(list1.get(position),list2.get(position));
+                if (Global.hashmap.containsValue(list2.get(position))){
+
+                }
+                if (!(Global.hashmap.containsValue(list2.get(position)))) {
+                    Global.hashmap.put("category" + String.valueOf(position), list2.get(position));
+                }
+                Log.d("ghfh","gfghf"+new Gson().toJson(Global.hashmap));
                 adapter.notifyDataSetChanged();
             }
         });
@@ -376,8 +384,10 @@ public class editmaincate extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
 
-                params.put("category",sessionManager.getcat());
-                Log.d("category","mm"+sessionManager.getcat());
+                params.put("category",Global.trr.toString());
+                Log.d("category","mm"+Global.trr.toString());
+                params.put("category1",Global.lis.toString());
+                Log.d("category","mm"+Global.lis.toString());
 
 
 
