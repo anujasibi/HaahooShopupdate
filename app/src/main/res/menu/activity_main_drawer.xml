@@ -44,11 +44,11 @@
             android:icon="@drawable/qr"
             android:title="Shop QR" />
 
-      <!--  <item
-            android:id="@+id/editcat"
+        <!--<item
+            android:id="@+id/editcc"
             android:icon="@drawable/cat"
-            android:title="Edit Your Category" />-->
-
+            android:title="Edit Your Category" />
+-->
 
 
 

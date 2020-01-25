@@ -110,6 +110,7 @@
                     android:text="Distributor"
                     android:layout_marginTop="10dp"
                     android:textColor="#000"
+                    android:id="@+id/text5"
                     android:textStyle="bold"
                     android:layout_below="@+id/imgg"
                     android:textSize="20dp"

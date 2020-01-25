@@ -504,11 +504,17 @@ public class addshopim extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             String ot = jsonObject.optString("message");
                             String status=jsonObject.optString("code");
+                            String pay_status=jsonObject.optString("pay_status");
 
                             Log.d("code","mm"+status);
-                            if(status.equals("200")){
+                            if(status.equals("200")&&pay_status.equals("Payment not done")){
                                 Toast.makeText(addshopim.this, "Successful", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(addshopim.this, Payment.class);
+                                startActivity(intent);
+                            }
+                            if(status.equals("200")&&pay_status.equals("Payment done")){
+                                Toast.makeText(addshopim.this, "Successful", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(addshopim.this, Navigation.class);
                                 startActivity(intent);
                             }
                             else{
@@ -559,6 +565,10 @@ public class addshopim extends AppCompatActivity {
                 Log.d("category","mm"+sessionManager.getpincode());
                 params.put("upi_id",sessionManager.getupiid());
                 Log.d("category","mm"+sessionManager.getupiid());
+                params.put("district",sessionManager.getdistrict());
+                Log.d("category","mm"+sessionManager.getdistrict());
+                params.put("branch",sessionManager.getradio());
+                Log.d("category","mm"+sessionManager.getradio());
 
 
                 return params;

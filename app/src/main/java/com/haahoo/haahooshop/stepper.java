@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +54,8 @@ public class stepper extends AppCompatActivity {
     Spinner spinner;
     public String idsp="null";
     ImageView imageView;
+    private RadioGroup radioSexGroup;
+    private RadioButton one,two,three;
 
     private static final String IMAGE_DIRECTORY = "/demonuts";
     private int GALLERY = 1, CAMERA = 2;
@@ -92,6 +96,19 @@ public class stepper extends AppCompatActivity {
         dialog=new ProgressDialog(stepper.this,R.style.MyAlertDialogStyle);
 
         shopname=findViewById(R.id.shopname);
+
+
+        radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
+        one=findViewById(R.id.radioMale);
+        two=findViewById(R.id.radioFemale);
+       // three=findViewById(R.id.radioFe);
+
+
+
+
+        // find the radiobutton by returned id
+
+
 
         upi=findViewById(R.id.upiid);
         owner=findViewById(R.id.owner);
@@ -252,6 +269,10 @@ public class stepper extends AppCompatActivity {
                     sessionManager.setlog(source_lng);
                     sessionManager.setpincode(pinc.getText().toString());
                     sessionManager.setupiid(upi.getText().toString());
+                    int selectedId = radioSexGroup.getCheckedRadioButtonId();
+                    one = (RadioButton) findViewById(selectedId);
+
+                    sessionManager.setradio(one.getText().toString());
 
                     Log.d("cvgbnm","mmm"+sessionManager.getshopname());
                     Log.d("cvgbnm","mmm"+sessionManager.getown());
@@ -265,7 +286,7 @@ public class stepper extends AppCompatActivity {
                 }
 
 
-              if(!(source_lng.equals("0")||source_lat.equals("0"))) {
+             /* if(!(source_lng.equals("0")||source_lat.equals("0"))) {
                   sessionManager.setshopname(shopname.getText().toString());
                   sessionManager.setown(owner.getText().toString());
                   sessionManager.setgst(gstno.getText().toString());
@@ -275,6 +296,10 @@ public class stepper extends AppCompatActivity {
                   sessionManager.setlog(source_lng);
                   sessionManager.setpincode(pinc.getText().toString());
                   sessionManager.setupiid(upi.getText().toString());
+                  int selectedId = radioSexGroup.getCheckedRadioButtonId();
+                  one = (RadioButton) findViewById(selectedId);
+
+                  sessionManager.setradio(one.getText().toString());
 
                   Log.d("cvgbnm","mmm"+sessionManager.getshopname());
                   Log.d("cvgbnm","mmm"+sessionManager.getown());
@@ -288,7 +313,7 @@ public class stepper extends AppCompatActivity {
                   intent.putExtra("lat", source_lat);
                   intent.putExtra("long", source_lng);
                   startActivity(intent);
-              }
+              }*/
 
 
 

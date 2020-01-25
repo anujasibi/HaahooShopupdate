@@ -62,33 +62,52 @@
                     android:layout_gravity="center_vertical"
                     android:id="@+id/ca"
                     >
-
                     <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:id="@+id/llScroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#fff"
+                        android:orientation="vertical">
+
+                      <!--  <Button
+                            android:id="@+id/btn"
+                            android:layout_width="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_height="wrap_content"
+                            android:text="Create PDF" />-->
+
+                        <ImageView
+                            android:id="@+id/iv"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_below="@+id/img"
+                            android:layout_margin="30dp"
+                         />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Provided below is your QR Code"
-                            android:textSize="18dp"
-                            android:id="@+id/im"
-                            android:layout_marginTop="5dp"
-                            android:textAlignment="center"/>
+                            android:id="@+id/img"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="Earn Rewards"
+                            android:textSize="30sp" />
 
-
-                        <ImageView
+                        <TextView
                             android:layout_width="match_parent"
-                            android:src="@drawable/cam"
-                            android:textColor="#fff"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:layout_below="@+id/im"
-                            android:id="@+id/imgp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="30dp"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/iv"
+                            android:text="Copyright@ 2019 haahoo.in"
+                            android:textColor="#000" />
 
-                            android:layout_height="150dp" />
+
 
                     </RelativeLayout>
+
 
                 </androidx.cardview.widget.CardView>
 

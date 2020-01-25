@@ -193,8 +193,8 @@ public class category extends AppCompatActivity {
 
                       Global.row = row;
                  /*   for (int j = 0 ;j<vals.size();j++){*/
-                      Log.d("valss","hjghj"+row.get(0).get(0));
-                      Log.d("valssyyy+","hjghj"+row.get(1).get(0));
+                     /* Log.d("valss","hjghj"+row.get(0).get(0));
+                      Log.d("valssyyy+","hjghj"+row.get(1).get(0));*/
 
                   /*  }*/
                     specAdapter = new SpecAdapter(specpojos, context);

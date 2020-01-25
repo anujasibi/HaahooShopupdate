@@ -120,7 +120,7 @@ public class editmaincategoryadapter extends RecyclerView.Adapter<editmaincatego
         Log.d("hjvhjv","kjbkjb"+jsonObject);
         sessionManager.setcat(jsonObject.toString());
         ArrayList<String>test=new ArrayList<>();
-        test.add(jsonObject.toString().replace("\"","").replace("[","").replace("]",""));
+        test.add(jsonObject.toString().replace("[","").replace("]",""));
         Global.lis.addAll(test);
         // Global.trr.add(jsonObject.toString());
        // Log.d("datattatata","kjbkjb"+test);

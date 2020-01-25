@@ -22,9 +22,9 @@ public class choose extends AppCompatActivity {
     String device_id = null;
     private ProgressDialog dialog ;
     Activity activity = this;
-    CardView card,cardn;
+    CardView card,cardn,card1;
     SessionManager sessionManager;
-    TextView textView;
+    TextView textView,textView2,text1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,11 @@ public class choose extends AppCompatActivity {
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
 
         card=findViewById(R.id.card);
+        card1=findViewById(R.id.card1);
         cardn=findViewById(R.id.cardn);
         textView=findViewById(R.id.text);
+        textView2=findViewById(R.id.text5);
+        text1=findViewById(R.id.text1);
 
         card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +59,25 @@ public class choose extends AppCompatActivity {
 
             }
         });
+       /* cardn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,distributorreg.class));
+                sessionManager.setrole(textView2.getText().toString());
+                Log.d("roleeree","mmm"+sessionManager.getrole());
+
+            }
+        });
+
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,manreg.class));
+                sessionManager.setrole(text1.getText().toString());
+                Log.d("roleeree","mmm"+sessionManager.getrole());
+
+            }
+        });*/
     }
     @Override
     public void onBackPressed() {

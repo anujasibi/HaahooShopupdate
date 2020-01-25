@@ -42,9 +42,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class registernew extends AppCompatActivity {
-    EditText shopname,owner,gstno,phone,email,password,distance,empID;
+    EditText shopname,owner,gstno,phone,email,password,distance,empID,promo;
     EditText address;
-    TextView submit,show,hide;
+    TextView submit,show,hide,appl,rem,sta;
     String device_id = null;
     Spinner spinner;
     public String idsp;
@@ -69,6 +69,7 @@ public class registernew extends AppCompatActivity {
     String emailPattern = "\\d{2}[A-Z]{5}\\d{4}[A-Z]{1}[A-Z\\d]{1}[Z]{1}[A-Z\\d]{1}";
     private ProgressDialog dialog ;
     ImageView image;
+    public String url=Global.BASE_URL+"api_shop_app/registration_coupon/ ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +97,10 @@ public class registernew extends AppCompatActivity {
 
 
         owner=findViewById(R.id.owner);
-
+        promo=findViewById(R.id.promo);
+        sta=findViewById(R.id.sta);
+        appl=findViewById(R.id.app);
+        rem=findViewById(R.id.rem);
         phone=findViewById(R.id.phone);
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
@@ -136,6 +140,35 @@ public class registernew extends AppCompatActivity {
             }
         });
 
+
+        appl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("promo","mm"+promo.getText().toString());
+                promo.setEnabled(false);
+                appl.setVisibility(View.GONE);
+                rem.setVisibility(View.VISIBLE);
+
+                if(promo.getText().toString().equals("HAHRATHEESH")){
+                    status();
+
+                }
+                if(!(promo.getText().toString().equals("HAHRATHEESH"))){
+
+                    sta.setText("Invalid Promocode");
+                }
+            }
+        });
+
+        rem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rem.setVisibility(View.GONE);
+                appl.setVisibility(View.VISIBLE);
+                promo.setEnabled(true);
+                sta.setText("");
+            }
+        });
 
 
 
@@ -228,6 +261,8 @@ public class registernew extends AppCompatActivity {
                 Log.d("pass","mm"+password.getText().toString());
                 params.put("phone_no",phone.getText().toString());
                 Log.d("phone","mm"+phone.getText().toString());
+                params.put("coupon",promo.getText().toString());
+                Log.d("name","mm"+promo.getText().toString());
                 if (empID.getText().toString().length()>0){
                     params.put("ref_id",empID.getText().toString());
                 }
@@ -262,6 +297,53 @@ public class registernew extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+
+    private void status(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject jsonObject=new JSONObject(response);
+
+                    String ot = jsonObject.optString("message");
+                    String status=jsonObject.optString("code");
+                   // String token=jsonObject.optString("token");
+
+                    if(status.equals("200")){
+                        //Toast.makeText(registernew.this, "Successful", Toast.LENGTH_LONG).show();
+                        sta.setText("Applied Successfully");
+                    }
+                    if(status.equals("203")){
+                        sta.setText("Failed");
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                dialog.dismiss();
+                Toast.makeText(registernew.this,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("coupon",promo.getText().toString());
+                Log.d("name","mm"+promo.getText().toString());
+                params.put("phone_no",phone.getText().toString());
+                Log.d("phone","mm"+phone.getText().toString());
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 
 

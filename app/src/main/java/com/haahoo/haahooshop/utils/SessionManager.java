@@ -356,6 +356,13 @@ public class SessionManager {
     public void setupiid(String upiid){
         sharedPreferences.edit().putString("upiid",upiid).commit();
     }
+    public String getdistrict(){
+
+        return  sharedPreferences.getString("district","");
+    }
+    public void setdistrict(String district){
+        sharedPreferences.edit().putString("district",district).commit();
+    }
 
 
 

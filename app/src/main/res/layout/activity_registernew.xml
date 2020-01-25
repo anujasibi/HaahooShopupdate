@@ -233,12 +233,70 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:inputType="textCapCharacters"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="5dp"
+                    android:id="@+id/promo"
+                    android:hint="Apply Promo code"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_toRightOf="@+id/promo"
+                    android:text="Apply"
+                    android:textColor="#fff"
+                    android:layout_marginTop="30dp"
+                    android:background="#008000"
+                    android:id="@+id/app"
+                    android:gravity="center"
+                    android:layout_height="40dp"/>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_toRightOf="@+id/promo"
+                        android:text="Remove"
+                        android:textColor="#fff"
+                        android:layout_marginTop="30dp"
+                        android:background="#f00000"
+                       android:textStyle="bold"
+                        android:id="@+id/rem"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:layout_height="40dp"/>
+
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_below="@+id/promo"
+                        android:text=""
+                        android:textColor="#5C25B7"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:id="@+id/sta"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
                     app:cardBackgroundColor="#5c25b7"

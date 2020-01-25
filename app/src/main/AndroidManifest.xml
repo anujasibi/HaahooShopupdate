@@ -20,7 +20,9 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".chooseeditcat"></activity>
+        <activity android:name=".manreg"></activity>
+        <activity android:name=".distributorreg" />
+        <activity android:name=".chooseeditcat" />
         <activity android:name=".editmaincate" />
         <activity android:name=".CODOTP" />
         <!--
@@ -113,17 +115,18 @@
         <activity android:name=".ViewBranches" />
         <activity android:name=".AddEmployee" />
         <activity android:name=".AddShopBranch" />
-  <meta-data
+        <!--
+<meta-data
         android:name="com.razorpay.ApiKey"
         android:value="rzp_live_MquWTYi6ypIVBE" />
-        <!--<meta-data
+        -->
+        <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_Sc2QOgXEJcedKm" />-->
+            android:value="rzp_test_Sc2QOgXEJcedKm" />
 
-        <activity android:name=".addproductnew"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+        <activity
+            android:name=".addproductnew"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Payment" />
         <activity android:name=".editcategory" />
         <activity android:name=".edit_product" />
@@ -147,6 +150,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path" />
+        </provider>
     </application>
 
 </manifest>
