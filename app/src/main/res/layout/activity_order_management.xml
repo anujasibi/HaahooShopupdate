@@ -78,6 +78,7 @@
         android:layout_toEndOf="@+id/dot1"
         android:text="View Upcoming Orders"
         android:layout_below="@+id/tr"
+        android:id="@+id/upor"
         android:layout_marginTop="18dp"
         android:layout_marginStart="10dp"
         android:textColor="#000"/>
@@ -91,14 +92,15 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
+        android:id="@+id/vioh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/dot1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
         android:layout_toEndOf="@+id/dot2"
         android:text="View Order History"
-        android:layout_below="@+id/dot1"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="10dp"
-        android:textColor="#000"/>
+        android:textColor="#000" />
 
     <ImageView
         android:layout_width="15dp"
@@ -114,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot3"
         android:text="View Subscription list"
+        android:id="@+id/sub"
         android:layout_below="@+id/dot2"
         android:layout_marginTop="18dp"
         android:layout_marginStart="10dp"
@@ -133,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot4"
         android:text="View Cancelled Subscription"
+        android:id="@+id/cans"
         android:layout_below="@+id/dot3"
         android:layout_marginTop="18dp"
         android:layout_marginStart="10dp"

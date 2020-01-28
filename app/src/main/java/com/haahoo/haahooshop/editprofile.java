@@ -67,7 +67,7 @@ import retrofit2.Retrofit;
 
 public class editprofile extends AppCompatActivity {
     EditText shopname,owner,gst,email;
-    ImageView imh,imgp;
+    ImageView imh,imgp,imgpp;
     TextView submit;
     private String URLline = Global.BASE_URL+"api_shop_app/shop_update/";
     SessionManager sessionManager;
@@ -76,7 +76,7 @@ public class editprofile extends AppCompatActivity {
     private ProgressDialog dialog ;
     String emailPattern = "\\d{2}[A-Z]{5}\\d{4}[A-Z]{1}[A-Z\\d]{1}[Z]{1}[A-Z\\d]{1}";
     Activity activity = this;
-    private int GALLERY = 1, CAMERA = 2;
+    private int GALLERY = 1, CAMERA = 2,GALLERYC=3,CAMERAC=4;
     private static final String IMAGE_DIRECTORY = "/demonuts";
     private Uri uri;
     String filePath;
@@ -106,6 +106,7 @@ public class editprofile extends AppCompatActivity {
         email=findViewById(R.id.email);
         back=findViewById(R.id.back);
         imgp=findViewById(R.id.imgp);
+        imgpp=findViewById(R.id.imgpp);
 
 
         Bundle bundle = getIntent().getExtras();
@@ -115,11 +116,13 @@ public class editprofile extends AppCompatActivity {
         String gstn=bundle.getString("gstno");
         String em=bundle.getString("email");
         String imag=bundle.getString("image");
+        String im=bundle.getString("image1");
 
         shopname.setText(shop);
         owner.setText(own);
         gst.setText(gstn);
         email.setText(em);
+        Picasso.get().load(Global.BASE_URL+im).into(imgpp);
         Picasso.get().load(Global.BASE_URL+imag).into(imgp);
 
         dialog=new ProgressDialog(editprofile.this,R.style.MyAlertDialogStyle);
@@ -139,6 +142,13 @@ public class editprofile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showPictureDialo();
+            }
+        });
+
+        imgpp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPictureDialog();
             }
         });
 
@@ -181,6 +191,93 @@ public class editprofile extends AppCompatActivity {
         });
 
     }
+
+    private void showPictureDialog(){
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
+        pictureDialog.setTitle("Select Action");
+        String[] pictureDialogItems = {
+                "Select photo from gallery",
+                "Capture photo from camera" };
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                choosePhotoFromGallary();
+                                break;
+                            case 1:
+                                takePhotoFromCamera();
+                                break;
+                        }
+                    }
+                });
+        pictureDialog.show();
+    }
+
+    public void choosePhotoFromGallary() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        startActivityForResult(galleryIntent, GALLERYC);
+    }
+
+    private void takePhotoFromCamera() {
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERAC);
+    }
+
+
+
+
+
+
+    private void uploadToServer(String filePath) {
+        Retrofit retrofit = NetworkClient.getRetrofitClient(this);
+        UploadImage uploadAPI = retrofit.create(UploadImage.class);
+
+//        Log.d("url","mmm"+filePath);
+        //Create a file object using file path
+        if (filePath == null){
+            Toast.makeText(editprofile.this,"Please Upload Image",Toast.LENGTH_SHORT).show();
+        }
+        if (filePath != null) {
+            File immm = new File(filePath);
+            Log.d("mmmmmmm", "mmm" + immm.length());
+            // Create a request body with file and image media type
+
+
+            RequestBody photob = RequestBody.create(MediaType.parse("image/*"), immm);
+            // Create MultipartBody.Part using file request-body,file name and part name
+            MultipartBody.Part part1 = MultipartBody.Part.createFormData("shop_image", immm.getName(), photob);
+            Log.d("image","mm"+part1);
+            Log.d("image","mm"+immm.getName());
+
+
+
+            //Create request body with text description and text media type
+            //
+            Call<ResponseBody> call = uploadAPI.uploadImage(part1,"Token "+ sessionManager.getTokens());
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
+                    Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
+                    Log.d("recyfvggbhh","mm"+response);
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+
+                }
+
+
+            });
+        }
+    }
+
+
 
     private void showPictureDialo() {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
@@ -241,6 +338,36 @@ public class editprofile extends AppCompatActivity {
                 }
             }
 
+        }
+
+        if (requestCode == GALLERYC) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                uri=data.getData();
+                filePath = getRealPathFromURIPath(uri, editprofile.this);
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    bitmap = getResizedBitmap(bitmap, 400);
+                    String path = saveImage(bitmap);
+                    Toast.makeText(editprofile.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                    imgpp.setImageBitmap(bitmap);
+                    uploadToServer(filePath);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(editprofile.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } else if (requestCode == CAMERAC) {
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            imgpp.setImageBitmap(thumbnail);
+            saveImage(thumbnail);
+            Toast.makeText(editprofile.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+            Uri tempUri = getImageUri(getApplicationContext(), thumbnail);
+            filePath= (getRealPathFromURI(tempUri));
+            uploadToServer(filePath);
+            Log.d("filepath","mm"+filePath);
         }
 
 

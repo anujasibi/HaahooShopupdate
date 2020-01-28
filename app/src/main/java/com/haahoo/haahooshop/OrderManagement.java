@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sa90.materialarcmenu.ArcMenu;
@@ -20,6 +21,7 @@ public class OrderManagement extends AppCompatActivity {
     ArcMenu arcMenu;
     Activity activity=this;
     ImageView imageView3;
+    TextView upor,vioh,sub,cans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,41 @@ public class OrderManagement extends AppCompatActivity {
 // finally change the color
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
 
+        upor=findViewById(R.id.upor);
+        vioh=findViewById(R.id.vioh);
+        sub=findViewById(R.id.sub);
+        cans=findViewById(R.id.cans);
+
+
+        upor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderManagement.this, Uporder.class);
+                startActivity(intent);
+            }
+        });
+        vioh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderManagement.this, orderhistory.class);
+                startActivity(intent);
+            }
+        });
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderManagement.this, Subscriptionlist.class);
+                startActivity(intent);
+            }
+        });
+        cans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderManagement.this, cancelsub.class);
+                startActivity(intent);
+            }
+        });
+
         imageView3=findViewById(R.id.imageView3);
 
         imageView3.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +84,9 @@ public class OrderManagement extends AppCompatActivity {
 
         arcMenu = findViewById(R.id.arcMenu);
     //    arcMenu.setRadius(getResources().getDimension(R.dimen.radius));
+
+        arcMenu.isMenuOpened();
+
 
         arcMenu.setStateChangeListener(new StateChangeListener() {
             @Override

@@ -76,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot1"
        android:text="Add Branches"
+        android:id="@+id/addb"
         android:layout_below="@+id/tr"
         android:layout_marginTop="28dp"
         android:layout_marginStart="10dp"
@@ -94,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot2"
         android:text="Add Employee"
+        android:id="@+id/adde"
         android:layout_below="@+id/dot1"
         android:layout_marginTop="28dp"
         android:layout_marginStart="10dp"
@@ -113,6 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot3"
         android:text="View Branches"
+        android:id="@+id/viewb"
         android:layout_below="@+id/dot2"
         android:layout_marginTop="28dp"
         android:layout_marginStart="10dp"
@@ -132,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot4"
         android:text="View Employees"
+        android:id="@+id/viewe"
         android:layout_below="@+id/dot3"
         android:layout_marginTop="28dp"
         android:layout_marginStart="10dp"
@@ -149,12 +153,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/dot5"
-        android:text="View Branch Products"
         android:layout_below="@+id/dot4"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
-        android:layout_marginStart="10dp"
-        android:textColor="#000"/>
+        android:layout_toEndOf="@+id/dot5"
+        android:id="@+id/viewbp"
+        android:text="View Branch Products"
+        android:textColor="#000" />
 
     <Button
         android:layout_width="match_parent"

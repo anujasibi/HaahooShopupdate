@@ -83,7 +83,7 @@ public class qrcode extends AppCompatActivity {
         imgp=findViewById(R.id.iv);
         sessionManager=new SessionManager(this);
 
-    //    btn = findViewById(R.id.btn);
+       btn = findViewById(R.id.btnn);
         llScroll = findViewById(R.id.llScroll);
 
 
@@ -100,7 +100,7 @@ public class qrcode extends AppCompatActivity {
 
         submituser();
 
-       /* btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
@@ -108,7 +108,7 @@ public class qrcode extends AppCompatActivity {
                 bitmap = loadBitmapFromView(llScroll, llScroll.getWidth(), llScroll.getHeight());
                 createPdf();
             }
-        });*/
+        });
     }
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {

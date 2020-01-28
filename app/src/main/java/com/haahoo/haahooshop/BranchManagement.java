@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naylalabs.semiradialmenu.MenuItemView;
@@ -26,6 +27,7 @@ public class BranchManagement extends AppCompatActivity implements RadialMenuVie
     Button button;
     Activity activity=this;
     ImageView imageView3;
+    TextView addb,adde,viewb,viewe,viewbp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,49 @@ public class BranchManagement extends AppCompatActivity implements RadialMenuVie
             }
         });
 
+        addb=findViewById(R.id.addb);
+        adde=findViewById(R.id.adde);
+        viewb=findViewById(R.id.viewb);
+        viewe=findViewById(R.id.viewe);
+        viewbp=findViewById(R.id.viewbp);
+
+        addb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BranchManagement.this,AddShopBranch.class));
+            }
+        });
+
+        adde.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BranchManagement.this,AddEmployee.class));
+            }
+        });
+
+        viewb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BranchManagement.this,ViewBranches.class));
+            }
+        });
+
+        viewe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BranchManagement.this,viewemployee.class));
+            }
+        });
+
+        viewbp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BranchManagement.this,viewbran.class));
+            }
+        });
+
         radialMenuView = findViewById(R.id.radial_menu_view);
+        radialMenuView.show();
         button = findViewById(R.id.button);
 
         MenuItemView itemOne = new MenuItemView(this ,"Soru Sor",R.drawable.branch, R.color.blu);

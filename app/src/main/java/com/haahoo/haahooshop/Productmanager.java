@@ -5,19 +5,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ramotion.circlemenu.CircleMenuView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Productmanager extends AppCompatActivity {
     Activity activity=this;
+    TextView upor,vioh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,25 @@ public class Productmanager extends AppCompatActivity {
             }
         });
 
+        upor=findViewById(R.id.upor);
+        vioh=findViewById(R.id.vioh);
+
+        upor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Productmanager.this,choosepdtcategory.class));
+            }
+        });
+        vioh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Productmanager.this,viewproduct.class));
+            }
+        });
+
         final CircleMenuView menu = findViewById(R.id.circle_menu);
+
+
         menu.setEventListener(new CircleMenuView.EventListener() {
             @Override
             public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
@@ -73,6 +95,7 @@ public class Productmanager extends AppCompatActivity {
                 Log.d("D", "onButtonClickAnimationStart| index: " + index);
             }
 
+
             @Override
             public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
                 Log.d("D", "onButtonClickAnimationEnd| index: " + index);
@@ -93,22 +116,22 @@ public class Productmanager extends AppCompatActivity {
                     // startActivity(new Intent(Productmanager.this,cloudproductcategory.class));
                 }
             }
-
-            @Override
-            public boolean onButtonLongClick(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClick| index: " + index);
-                return true;
-            }
-
-            @Override
-            public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClickAnimationStart| index: " + index);
-            }
-
-            @Override
-            public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClickAnimationEnd| index: " + index);
-            }
+//
+//            @Override
+//            public boolean onButtonLongClick(@NonNull CircleMenuView view, int index) {
+//                Log.d("D", "onButtonLongClick| index: " + index);
+//                return true;
+//            }
+//
+//            @Override
+//            public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int index) {
+//                Log.d("D", "onButtonLongClickAnimationStart| index: " + index);
+//            }
+//
+//            @Override
+//            public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
+//                Log.d("D", "onButtonLongClickAnimationEnd| index: " + index);
+//            }
         });
     }
 

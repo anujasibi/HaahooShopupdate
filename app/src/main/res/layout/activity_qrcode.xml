@@ -69,12 +69,12 @@
                         android:background="#fff"
                         android:orientation="vertical">
 
-                      <!--  <Button
-                            android:id="@+id/btn"
+                        <Button
+                            android:id="@+id/btnn"
                             android:layout_width="match_parent"
                             android:layout_alignParentBottom="true"
                             android:layout_height="wrap_content"
-                            android:text="Create PDF" />-->
+                            android:text="Create PDF" />
 
                         <ImageView
                             android:id="@+id/iv"

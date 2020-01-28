@@ -77,7 +77,7 @@ public class profile extends AppCompatActivity {
     public String em;
     ImageView io;
     Activity activity = this;
-    public String  split1;
+    public String  split1,split;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +145,7 @@ public class profile extends AppCompatActivity {
                 intent.putExtra("gstno",gstno.getText().toString());
                 intent.putExtra("email",em);
                 intent.putExtra("image",split1);
+                intent.putExtra("image1",split);
                 startActivity(intent);
                 //
 
@@ -423,7 +424,7 @@ public class profile extends AppCompatActivity {
                             em=jsonObject1.optString("email");
                             String images1 = jsonObject1.getString("image");
                             String[] seperated = images1.split(",");
-                            String split = seperated[0].replace("[", "").replace("]","");
+                             split = seperated[0].replace("[", "").replace("]","");
                             Log.d("imagesddd","mm"+split);
                       //      Picasso.with(context).load(Global.BASE_URL+split).into(imageView)
                             Picasso.get().load(Global.BASE_URL+split).into(imageView);
