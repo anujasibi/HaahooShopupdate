@@ -119,7 +119,8 @@ public class editcategory extends AppCompatActivity {
                     Toast.makeText(context,"Specifications cannot be left empty",Toast.LENGTH_SHORT).show();
                 }
                 if (sessionManager.getcatName().length()!=0){
-                    startActivity(new Intent(context,viewproduct.class));
+                    submit();
+
                 }
                 //
             }
@@ -348,6 +349,57 @@ public class editcategory extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 
+    }
+
+
+    private void submit(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    String code=jsonObject.optString("code");
+
+                    if(code.equals("200")){
+                        Toast.makeText(context,"Successfully Updated",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(context,viewproduct.class));
+                    }
+                    if(!(code.equals("200"))){
+                        Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(editcategory.this,error.toString(),Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("pdt_id", sessionManager.getPdtid());
+                params.put("spec", sessionManager.getcatName());
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Token " + sessionManager.getTokens());
+                return params;
+            }
+
+
+        };
+
+        RequestQueue requestQueue=Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 
     @Override
