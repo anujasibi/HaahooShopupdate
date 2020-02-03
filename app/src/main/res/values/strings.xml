@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HaaHooBusiness</string>
+    <string name="app_name">HaaHoo Business</string>
 
     <string-array name="stepLabels">
         <item>Approval</item>

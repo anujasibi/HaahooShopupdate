@@ -192,6 +192,13 @@ public class SessionManager {
     public void setcheck(String check){
         sharedPreferences.edit().putString("check",check).commit();
     }
+    public String getsearch(){
+
+        return  sharedPreferences.getString("search","");
+    }
+    public void setsearch(String search){
+        sharedPreferences.edit().putString("search",search).commit();
+    }
     public String getcheckn(){
 
         return  sharedPreferences.getString("checkn","");

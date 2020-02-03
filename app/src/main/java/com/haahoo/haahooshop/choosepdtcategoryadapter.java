@@ -89,7 +89,8 @@ public class choosepdtcategoryadapter extends
                     sessionManager.setcatrid(idn.getText().toString());
                  //   Log.d("mmmmmmmmmm","mm"+sessionManager.getcatrid());
 
-                    context.startActivity(new Intent(context,addproductnew.class));
+                    context.startActivity(new Intent(context,ProductSearch.class));
+
 
 
 

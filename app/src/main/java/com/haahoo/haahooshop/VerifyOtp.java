@@ -110,7 +110,7 @@ public class VerifyOtp extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             if(status.equals("203")){
-                                Toast.makeText(VerifyOtp.this, "Invalid OTP.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(VerifyOtp.this, "Verification Failed.Please enter valid otp", Toast.LENGTH_LONG).show();
                             }
                             else{
                                 Toast.makeText(VerifyOtp.this, ot, Toast.LENGTH_LONG).show();

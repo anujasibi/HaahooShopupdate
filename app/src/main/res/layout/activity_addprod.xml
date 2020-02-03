@@ -130,7 +130,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:id="@+id/pincode"
-                                android:hint="Discount (If Any)"
+                                android:hint="Discounted Amount (Amount after discount,If Any)"
                                 android:maxLength="6"
                                 android:inputType="number"
                                 android:layout_marginRight="2dp"
