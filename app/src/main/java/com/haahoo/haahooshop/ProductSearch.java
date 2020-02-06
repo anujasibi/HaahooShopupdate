@@ -142,6 +142,7 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
 
             @Override
             public void afterTextChanged(Editable editable) {
+                recyclerView.setVisibility(View.VISIBLE);
 
                 search();
 
@@ -343,5 +344,6 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
     public void onSetValues(String pdtname) {
         //Toast.makeText(context,pdtname,Toast.LENGTH_SHORT).show();
         editTextSearch.setText(pdtname);
+        recyclerView.setVisibility(View.GONE);
     }
 }

@@ -16,20 +16,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Shop Details"
-        android:layout_marginTop="0dp"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/abril_fatface"
+            android:text="Add Shop Details"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="690dp"
+        android:layout_height="650dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
@@ -69,10 +70,11 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:id="@+id/shopname"
                         android:layout_marginStart="10dp"
                         android:background="@null"
+                        android:textSize="12sp"
                         android:hint="Enter your Shop Name"
                         android:layout_marginLeft="10dp" />
 
@@ -98,10 +100,11 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:layout_marginStart="10dp"
                         android:background="@null"
                         android:id="@+id/owner"
+                        android:textSize="12sp"
                         android:hint="Name of owner"
                         android:layout_marginLeft="10dp" />
 
@@ -126,9 +129,10 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:id="@+id/gst"
                         android:layout_marginStart="10dp"
+                        android:textSize="12sp"
                         android:background="@null"
                         android:hint="Enter GST number"
                         android:layout_marginLeft="10dp" />
@@ -154,9 +158,10 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:id="@+id/upiid"
                         android:layout_marginStart="10dp"
+                        android:textSize="12sp"
                         android:background="@null"
                         android:hint="Enter UPI ID (Optional)"
                         android:layout_marginLeft="10dp" />
@@ -176,8 +181,7 @@
                 android:gravity="center_vertical"
                 android:text="Choose the Branch Type"
                 android:textAlignment="center"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
 
@@ -194,11 +198,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Main Branch"
+                    android:textSize="12sp"
                     android:checked="true" />
 
                 <RadioButton
                     android:id="@+id/radioFemale"
                     android:layout_width="wrap_content"
+                    android:textSize="12sp"
                     android:layout_height="wrap_content"
                     android:text="Sub Branch" />
 
@@ -222,12 +228,13 @@
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:id="@+id/pinc"
                         android:layout_marginStart="10dp"
                         android:background="@null"
                         android:inputType="number"
                         android:maxLength="6"
+                        android:textSize="12sp"
                         android:hint="Enter the Shop Pincode"
                         android:layout_marginLeft="10dp" />
 
@@ -256,6 +263,7 @@
                         android:id="@+id/des"
                         android:background="@drawable/custom_button"
                         android:textAlignment="center"
+                        android:textSize="12sp"
                         android:hint="Add Your Complete Address"
                         />
 
@@ -279,7 +287,7 @@
                     android:layout_weight="3"
                     android:id="@+id/spinner"
                     android:layout_marginBottom="5dp"
-                    android:layout_height="50dp">
+                    android:layout_height="40dp">
 
                 </Spinner>
 

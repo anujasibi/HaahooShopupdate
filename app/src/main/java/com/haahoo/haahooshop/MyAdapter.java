@@ -77,7 +77,14 @@ public class MyAdapter extends ArrayAdapter {
         textView.setText(birdList.get(position).getName());
       //  Picasso.with(getContext()).load(birdList.get(position).getImage()).into(imageView);
         Picasso.get().load(birdList.get(position).getImage()).into(imageView);
-        textView1.setText(birdList.get(position).getPrice());
+
+        textView1.setText("₹ "+birdList.get(position).getDiscount());
+        if(Integer.parseInt(birdList.get(position).getDiscount())==0){
+            textView1.setText(birdList.get(position).getPrice());
+        }
+        if(birdList.get(position).getDiscount().equals("")){
+            textView1.setText(birdList.get(position).getPrice());
+        }
 
         viewk.setText("Stock : "+birdList.get(position).getStock());
        // textView3.setText(birdList.get(position).getStock());

@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,6 +71,7 @@ public class registernew extends AppCompatActivity {
     private ProgressDialog dialog ;
     ImageView image;
     public String url=Global.BASE_URL+"api_shop_app/registration_coupon/ ";
+    RelativeLayout appre,remre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,8 @@ public class registernew extends AppCompatActivity {
         phone=findViewById(R.id.phone);
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
+        appre=findViewById(R.id.appre);
+        remre=findViewById(R.id.remre);
         show=findViewById(R.id.show);
         hide=findViewById(R.id.hide);
         device_id =  Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -141,7 +145,7 @@ public class registernew extends AppCompatActivity {
         });
 
 
-        appl.setOnClickListener(new View.OnClickListener() {
+      /*  appl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("promo","mm"+promo.getText().toString());
@@ -158,15 +162,41 @@ public class registernew extends AppCompatActivity {
                     sta.setText("Invalid Promocode");
                 }
             }
-        });
+        });*/
 
-        rem.setOnClickListener(new View.OnClickListener() {
+
+      appre.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+              promo.setEnabled(false);
+              appre.setVisibility(View.GONE);
+              remre.setVisibility(View.VISIBLE);
+              status();
+
+          }
+      });
+
+      /*  rem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rem.setVisibility(View.GONE);
                 appl.setVisibility(View.VISIBLE);
                 promo.setEnabled(true);
                 sta.setText("");
+            }
+        });*/
+
+
+        remre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sta.setText("");
+                promo.setText("");
+                remre.setVisibility(View.GONE);
+                appre.setVisibility(View.VISIBLE);
+                promo.setEnabled(true);
+
             }
         });
 
@@ -316,7 +346,7 @@ public class registernew extends AppCompatActivity {
                         sta.setText("Applied Successfully");
                     }
                     if(status.equals("203")){
-                        sta.setText("Failed");
+                        sta.setText("Invalid PromoCode");
                     }
 
                 }catch (Exception e){

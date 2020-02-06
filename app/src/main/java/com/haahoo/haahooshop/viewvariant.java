@@ -69,7 +69,7 @@ public class viewvariant extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(viewvariant.this,Navigation.class));
+                startActivity(new Intent(viewvariant.this,viewproduct.class));
             }
         });
         Window window = activity.getWindow();

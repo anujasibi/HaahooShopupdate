@@ -36,14 +36,15 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:textColor="#fff"
                             android:id="@+id/tec"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
-                            android:textAlignment="center"
+                            android:fontFamily="@font/andada"
                             android:text="Total Earnings"
-                            android:textStyle="bold"
-                            android:layout_height="wrap_content"/>
+                            android:textAlignment="center"
+                            android:textColor="#fff"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -82,6 +83,7 @@
                             android:layout_marginTop="30dp"
                             android:textAlignment="center"
                             android:text="Today's Orders"
+                            android:fontFamily="@font/andada"
                             android:textStyle="bold"
                             android:layout_height="wrap_content"/>
 
@@ -120,6 +122,7 @@
                             android:layout_marginTop="30dp"
                             android:textAlignment="center"
                             android:text="Subscriptions"
+                            android:fontFamily="@font/andada"
                             android:textStyle="bold"
                             android:layout_height="wrap_content"/>
 
@@ -176,17 +179,17 @@
                                 android:layout_height="40dp"/>
 
 
-
                             <TextView
                                 android:layout_width="match_parent"
-                                android:textColor="#000"
-                                android:padding="5dp"
-                                android:gravity="center_vertical"
-                                android:textAlignment="center"
-                                android:text="Product Manager"
+                                android:layout_height="match_parent"
                                 android:layout_below="@+id/im"
                                 android:layout_marginTop="0dp"
-                                android:layout_height="match_parent"/>
+                                android:fontFamily="@font/pt_serif_caption"
+                                android:gravity="center_vertical"
+                                android:padding="5dp"
+                                android:text="Product Management"
+                                android:textAlignment="center"
+                                android:textColor="#000" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -221,6 +224,7 @@
                                 android:gravity="center_vertical"
                                 android:textAlignment="center"
                                 android:text="Branch Management"
+                                android:fontFamily="@font/pt_serif_caption"
                                 android:layout_below="@+id/imm"
                                 android:layout_marginTop="0dp"
                                 android:layout_height="match_parent"/>
@@ -260,6 +264,7 @@
                                 android:textAlignment="center"
                                 android:text="Order Management"
                                 android:layout_below="@+id/imf"
+                                android:fontFamily="@font/pt_serif_caption"
                                 android:layout_marginTop="0dp"
                                 android:gravity="center_vertical"
                                 android:layout_height="match_parent"/>
@@ -298,6 +303,7 @@
                                 android:padding="5dp"
                                 android:textAlignment="center"
                                 android:text="Profile Management"
+                                android:fontFamily="@font/pt_serif_caption"
                                 android:layout_below="@+id/immm"
                                 android:layout_marginTop="0dp"
                                 android:gravity="center_vertical"
@@ -636,6 +642,7 @@
                                 android:textColor="#000"
                                 android:textAlignment="center"
                                 android:text="Earnings"
+                                android:fontFamily="@font/pt_serif_caption"
                                 android:padding="5dp"
                                 android:gravity="center_vertical"
                                 android:layout_below="@+id/imn"
@@ -675,6 +682,7 @@
                                 android:textColor="#000"
                                 android:textAlignment="center"
                                 android:text="Reviews"
+                                android:fontFamily="@font/pt_serif_caption"
                                 android:gravity="center_vertical"
                                 android:padding="5dp"
                                 android:layout_below="@+id/immop"

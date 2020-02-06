@@ -33,14 +33,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:text="Add Shop"
-                        android:textSize="20dp"
-                        android:textAlignment="center"
                         android:layout_gravity="center"
-                        android:textColor="#fff"
-                        android:gravity="center_horizontal|center_vertical"
                         android:background="#5c25b7"
-                        />
+                        android:fontFamily="@font/abril_fatface"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="Add Shop"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="20dp" />
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="28dp"
@@ -65,13 +65,14 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/imte"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Add Shop Profile Image"
-                            android:textSize="18dp"
-                            android:id="@+id/imte"
                             android:layout_marginTop="5dp"
-                            android:textAlignment="center"/>
+                            android:fontFamily="@font/cormorant_unicase_light"
+                            android:text="Add Shop Profile Image"
+                            android:textAlignment="center"
+                            android:textSize="18dp" />
 
 
                         <ImageView
@@ -104,13 +105,14 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/im"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Add Shop Cover Image"
-                            android:textSize="18dp"
-                            android:id="@+id/im"
                             android:layout_marginTop="5dp"
-                            android:textAlignment="center"/>
+                            android:fontFamily="@font/cormorant_unicase_light"
+                            android:text="Add Shop Cover Image"
+                            android:textAlignment="center"
+                            android:textSize="18dp" />
 
 
                         <ImageView
@@ -144,6 +146,7 @@
                             android:background="#5C25B7"
                             android:gravity="center_vertical"
                             android:text="Continue"
+                            android:fontFamily="@font/abril_fatface"
                             android:textAlignment="center"
                             android:textColor="#fff"
                             android:textSize="18sp" />

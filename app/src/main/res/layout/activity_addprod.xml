@@ -74,7 +74,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:id="@+id/name"
-                                android:hint="Price"
+                                android:hint="Original Price"
                                 android:inputType="number"
                                 android:layout_marginRight="2dp"
                                 android:layout_marginBottom="2dp"
@@ -130,7 +130,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:id="@+id/pincode"
-                                android:hint="Discounted Amount (Amount after discount,If Any)"
+                                android:hint="Discount Price(If Any)"
                                 android:maxLength="6"
                                 android:inputType="number"
                                 android:layout_marginRight="2dp"
@@ -215,6 +215,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
                             android:background="@drawable/custom_button"
                             android:textAlignment="center"
                             android:id="@+id/des"

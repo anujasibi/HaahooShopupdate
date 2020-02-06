@@ -476,7 +476,7 @@ public class Addvar extends AppCompatActivity {
                 @Override
                 public void onResponse(Call call, retrofit2.Response response) {
                     Toast.makeText(context, "Successfull" , Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(context,Navigation.class));
+                    startActivity(new Intent(context,viewvariant.class));
                 }
 
                 @Override

@@ -59,6 +59,9 @@ public class addprod extends AppCompatActivity {
         incent=findViewById(R.id.incen);
         imageView3=findViewById(R.id.imageView3);
 
+
+
+
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +74,10 @@ public class addprod extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Integer.parseInt(pincode.getText().toString())>=Integer.parseInt(name.getText().toString())){
+                    pincode.setError("Discount amount should be less than Orginal Price");
+                }
+
                 if(name.getText().length()==0||address.getText().length()==0||pincode.getText().length()==0||stock.getText().length()==0|des.getText().length()==0){
                     Toast.makeText(addprod.this,"All are fields are required",Toast.LENGTH_SHORT).show();
                 }
@@ -92,6 +99,7 @@ public class addprod extends AppCompatActivity {
                 }
             }
         });
+
 
 
 

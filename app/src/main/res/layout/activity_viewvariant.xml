@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="View Products"
+            android:text="View Variants"
             android:gravity="center_horizontal|center_vertical"
             android:textSize="20sp"
             android:textColor="#fff"

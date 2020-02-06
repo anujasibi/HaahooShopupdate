@@ -16,15 +16,16 @@
         android:layout_marginBottom="20dp">
 
         <TextView
+            android:id="@+id/tr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:id="@+id/tr"
+            android:fontFamily="@font/adamina"
             android:text="HaaHoo Business"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:textAlignment="center"
             android:textColor="#5C25B7"
-            android:textAlignment="center"/>
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
 
 
@@ -95,14 +96,14 @@
                             android:layout_height="match_parent">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
                                 android:id="@+id/uname"
-                                android:maxLength="10"
-                                android:inputType="number"
-                                android:textColor="#000"
-                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
                                 android:hint="Enter Mobile Number"
-                                android:layout_height="50dp">
+                                android:inputType="number"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textColor="#000">
 
 
                             </com.google.android.material.textfield.TextInputEditText>
@@ -172,6 +173,7 @@
                             android:layout_marginBottom="30dp"
                             android:background="#5c25b7"
                             android:clickable="true"
+                            android:fontFamily="@font/abril_fatface"
                             android:gravity="center_vertical"
                             android:text="Continue"
                             android:textAlignment="center"

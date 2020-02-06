@@ -191,7 +191,7 @@ public class viewpdtdetails extends AppCompatActivity {
 
         shopname.setText(pname);
         location.setText(price);
-        owner.setText(discount);
+        owner.setText("₹ "+discount);
         gstno.setText(stock);
         catgory.setText(des);
 

@@ -10,12 +10,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="You are a..."
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="You are a..."
+        android:textAlignment="center"
         android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textAlignment="center"/>
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
 
     <androidx.cardview.widget.CardView
@@ -65,19 +66,20 @@
 
             </ImageView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Shop"
-                android:id="@+id/text"
-                android:layout_marginTop="10dp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_below="@+id/img"
-                android:textSize="20dp"
-                android:textAlignment="center">
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cormorant_unicase_bold"
+                    android:text="Shop"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="22dp"
+                    android:textStyle="bold">
 
-            </TextView>
+                </TextView>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -111,9 +113,10 @@
                     android:layout_marginTop="10dp"
                     android:textColor="#000"
                     android:id="@+id/text5"
+                    android:fontFamily="@font/cormorant_unicase_bold"
                     android:textStyle="bold"
                     android:layout_below="@+id/imgg"
-                    android:textSize="20dp"
+                    android:textSize="22dp"
                     android:textAlignment="center">
 
                 </TextView>
@@ -148,11 +151,12 @@
                         android:layout_height="wrap_content"
                         android:text="Manufacture"
                         android:id="@+id/text1"
+                        android:fontFamily="@font/cormorant_unicase_bold"
                         android:layout_marginTop="10dp"
                         android:textColor="#000"
                         android:textStyle="bold"
                         android:layout_below="@+id/img1"
-                        android:textSize="20dp"
+                        android:textSize="22dp"
                         android:textAlignment="center">
 
                     </TextView>
