@@ -75,6 +75,7 @@
                     android:layout_marginTop="20dp"
                     android:textAlignment="center"
                     android:text="Shop Name"
+                    android:fontFamily="@font/graduate"
                     android:id="@+id/sname"
                     android:textSize="20dp"
                     android:layout_marginBottom="20dp"
@@ -94,6 +95,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:text="Location :"
+                    android:fontFamily="@font/cormorant_unicase_bold"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:id="@+id/locatr"
@@ -109,6 +111,7 @@
                     android:layout_marginEnd="5dp"
                     android:textColor="#000"
                     android:textAlignment="viewStart"
+                    android:fontFamily="@font/andada"
                     android:layout_below="@id/sname"
                     android:layout_toRightOf="@id/locatr"
                     android:layout_height="wrap_content"
@@ -126,6 +129,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:text="Owner :"
+                    android:fontFamily="@font/cormorant_unicase_bold"
                     android:gravity="center_vertical"
                     android:textStyle="bold"
                     android:layout_below="@+id/location"
@@ -142,6 +146,7 @@
                     android:id="@+id/owner"
                     android:layout_marginEnd="5dp"
                     android:textAlignment="viewStart"
+                    android:fontFamily="@font/andada"
                     android:layout_toRightOf="@id/owne"
                     android:textColor="#000"
                     android:layout_height="wrap_content"
@@ -159,6 +164,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:text="GST No :"
+                    android:fontFamily="@font/cormorant_unicase_bold"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:layout_below="@+id/owner"
@@ -178,6 +184,7 @@
                     android:layout_marginEnd="5dp"
                     android:id="@+id/gstno"
                     android:textAlignment="viewStart"
+                    android:fontFamily="@font/andada"
                     android:textColor="#000"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp" />
@@ -229,6 +236,7 @@
                     android:id="@+id/edit"
                     android:textColor="#000"
                     android:gravity="center_vertical"
+                    android:fontFamily="@font/alegreya_sc_black"
                     android:layout_alignParentRight="true"
                     android:drawableLeft="@drawable/editp"
                     android:layout_height="wrap_content"

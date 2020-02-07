@@ -40,7 +40,7 @@ public class category extends AppCompatActivity {
 
   RecyclerView recyclerView;
   ArrayList<Specpojo> specpojos = new ArrayList<>();
-  SpecAdapter specAdapter;
+  SpecAdapter1 specAdapter;
   Context context = this;
   String[] value = null;
   SessionManager sessionManager;
@@ -197,7 +197,7 @@ public class category extends AppCompatActivity {
                       Log.d("valssyyy+","hjghj"+row.get(1).get(0));*/
 
                   /*  }*/
-                    specAdapter = new SpecAdapter(specpojos, context);
+                    specAdapter = new SpecAdapter1(specpojos, context);
                     recyclerView.setAdapter(specAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                   }

@@ -54,31 +54,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/recyclerView"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-
-            android:orientation="vertical">
-
-            <GridView
-                android:id="@+id/grid"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:columnWidth="100dp"
-                android:layout_marginBottom="60dp"
-                android:gravity="center"
-                android:numColumns="2"
-                android:stretchMode="columnWidth" />
-        </LinearLayout>
-
-    </RelativeLayout>
 
 
 

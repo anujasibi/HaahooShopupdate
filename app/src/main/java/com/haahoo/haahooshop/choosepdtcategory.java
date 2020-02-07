@@ -64,7 +64,7 @@ public class choosepdtcategory extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,Navigation.class));
+                startActivity(new Intent(context,Productmanager.class));
             }
         });
 
@@ -145,6 +145,6 @@ public class choosepdtcategory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(context,Navigation.class));
+        startActivity(new Intent(context,Productmanager.class));
     }
 }

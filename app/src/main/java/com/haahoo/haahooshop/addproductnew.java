@@ -53,7 +53,7 @@ public class addproductnew extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         sessionManager=new SessionManager(this);
-        name=findViewById(R.id.name);
+     //   name=findViewById(R.id.name);
         sessionManager.setcatid("");
 
 
@@ -66,7 +66,7 @@ public class addproductnew extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,choosepdtcategory.class));
+                startActivity(new Intent(context,ProductSearch.class));
             }
         });
 
@@ -78,23 +78,23 @@ public class addproductnew extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(name.getText().toString().equals("")){
+             /*   if(name.getText().toString().equals("")){
                     name.setError("ProductName is required");
                     //Toast.makeText(addproductnew.this,"All are fields are required",Toast.LENGTH_SHORT).show();
-                }
+                }*/
                 if(sessionManager.getcatid().length()==0){
                     Toast.makeText(addproductnew.this,"Should requires at least one category",Toast.LENGTH_SHORT).show();
                 }
-                if(!(name.getText().toString().equals(""))) {
+
                     if (!(sessionManager.getcatid().length() == 0)) {
 
-                        sessionManager.setPdtName(name.getText().toString());
+                        //sessionManager.setPdtName(name.getText().toString());
                         // sessionManager.setcatid(idsp);
                         Intent intent = new Intent(addproductnew.this, category.class);
                         intent.putExtra("category", sessionManager.getcatid());
                         // sessionManager.setPid(idsp);
                         startActivity(intent);
-                    }
+
                 }
 //                startActivity(new Intent(AddProduct.this,category.class));
             }
@@ -193,7 +193,7 @@ public class addproductnew extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(addproductnew.this,choosepdtcategory.class));
+        startActivity(new Intent(addproductnew.this,ProductSearch.class));
 
     }
 

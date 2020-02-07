@@ -159,6 +159,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="end"
                             android:text="Forgot Password?"
+                            android:fontFamily="@font/abril_fatface"
                             android:textAlignment="viewEnd"
                             android:textColor="#000"
                             android:visibility="gone" />
@@ -191,6 +192,7 @@
                             android:background="#5c25b7"
                             android:gravity="center_vertical"
                             android:text="Login"
+                            android:fontFamily="@font/abril_fatface"
                             android:textAlignment="center"
                             android:textColor="#fff"
                             android:textSize="18sp"

@@ -46,6 +46,7 @@
         android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toTopOf="@+id/circle_menu"
         app:layout_constraintTop_toBottomOf="@+id/re"
+        android:layout_marginTop="30dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">
 
@@ -55,19 +56,23 @@
             android:layout_height="15dp"
             android:layout_below="@+id/tr"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/dot" />
 
         <TextView
             android:id="@+id/upor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/tr"
             android:layout_marginStart="10dp"
+            android:textAlignment="center"
             android:layout_marginTop="18dp"
+            android:background="@drawable/applygrad"
             android:layout_toEndOf="@+id/dot1"
             android:text="Add Products"
-            android:textColor="#000" />
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#5C25B7" />
 
         <ImageView
             android:id="@+id/dot2"
@@ -75,19 +80,23 @@
             android:layout_height="15dp"
             android:layout_below="@+id/dot1"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/dot" />
 
         <TextView
             android:id="@+id/vioh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/dot1"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="38dp"
+            android:background="@drawable/applygrad"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textStyle="bold"
             android:layout_toEndOf="@+id/dot2"
             android:text="View Products"
-            android:textColor="#000" />
+            android:textColor="#5C25B7" />
 
 
     </RelativeLayout>

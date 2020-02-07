@@ -460,9 +460,9 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                         startActivity(new Intent(Navigation.this,qrcode.class));
                         break;
 
-                   /* case R.id.editcc:
+                    case R.id.editc:
                         startActivity(new Intent(Navigation.this,chooseeditcat.class));
-                        break;*/
+                        break;
 
                     case R.id.nav_privacy_policy:
                         sessionManager.setTokens("");

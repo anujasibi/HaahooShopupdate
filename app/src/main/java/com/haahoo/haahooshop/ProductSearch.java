@@ -57,6 +57,7 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
     ProductSearchAdapter adapter;
     Context context=this;
     SessionManager sessionManager;
+    public String pname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +92,8 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
         });
 
 
-        grid=(GridView)findViewById(R.id.grid);
-        submituser();
+       // grid=(GridView)findViewById(R.id.grid);
+     //   submituser();
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,19 +103,16 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
                     editTextSearch.setError("ProductName is required");
                     //Toast.makeText(addproductnew.this,"All are fields are required",Toast.LENGTH_SHORT).show();
                 }
-                if(sessionManager.getcatid().length()==0){
-                    Toast.makeText(ProductSearch.this,"Should requires at least one category",Toast.LENGTH_SHORT).show();
-                }
+
                 if(!(editTextSearch.getText().toString().equals(""))) {
-                    if (!(sessionManager.getcatid().length() == 0)) {
+
 
                         sessionManager.setPdtName(editTextSearch.getText().toString());
                         // sessionManager.setcatid(idsp);
-                        Intent intent = new Intent(ProductSearch.this, category.class);
-                        intent.putExtra("category", sessionManager.getcatid());
+                        Intent intent = new Intent(ProductSearch.this, addproductnew.class);
                         // sessionManager.setPid(idsp);
                         startActivity(intent);
-                    }
+
                 }
 //                startActivity(new Intent(AddProduct.this,category.class));
             }
@@ -200,7 +198,7 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
 
                             String total=obj.optString("total");
                             JSONArray dataArray  = obj.getJSONArray("data");
-
+                            names = new ArrayList<>();
 
                             for (int i = 0; i < dataArray.length(); i++) {
 
@@ -209,13 +207,15 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
 
                                 //   playerModel.setProductname(dataobj.optSt ring("name"));
                                 // ApiClient.productids.add(dataobj.optString("id"));
-                               String pname=dataobj.optString("pdt_name");
-                                names = new ArrayList<>();
+                                pname=dataobj.optString("pdt_name");
+                                Log.d("mmmm","mmgdfgd"+pname);
+
                                 names.add(pname);
 
 
-
                             }
+
+
                             recyclerView.setLayoutManager(new LinearLayoutManager(context));
                             adapter = new ProductSearchAdapter(names,context,ProductSearch.this);
                             recyclerView.setAdapter(adapter);
@@ -345,5 +345,10 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
         //Toast.makeText(context,pdtname,Toast.LENGTH_SHORT).show();
         editTextSearch.setText(pdtname);
         recyclerView.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(context,choosepdtcategory.class));
     }
 }
