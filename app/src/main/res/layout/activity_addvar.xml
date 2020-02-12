@@ -89,6 +89,7 @@
                                 android:id="@+id/shopname"
                                 android:layout_marginStart="10dp"
                                 android:background="@null"
+                                android:textSize="12sp"
                                 android:hint="Enter Variation Name"
                                 android:layout_marginLeft="10dp" />
 
@@ -120,6 +121,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:hint="Enter Fixed Price"
+                            android:textSize="12sp"
                             android:layout_marginLeft="10dp" />
 
                     </RelativeLayout>
@@ -146,6 +148,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:inputType="number"
+                            android:textSize="12sp"
                             android:hint="Enter Maximum Resale Price(Optional)"
                             android:layout_marginLeft="10dp" />
 
@@ -174,6 +177,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:inputType="number"
+                            android:textSize="12sp"
                             android:hint="Number of available stock"
                             android:layout_marginLeft="10dp" />
 
@@ -197,7 +201,7 @@
                         android:layout_weight="3"
                         android:id="@+id/spinner"
                         android:layout_marginBottom="5dp"
-                        android:layout_height="50dp">
+                        android:layout_height="40dp">
 
                     </Spinner>
 
@@ -221,7 +225,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Add Image"
-                            android:textSize="18dp"
+                            android:textSize="12dp"
                             android:id="@+id/im"
                             android:layout_marginTop="5dp"
                             android:textAlignment="center"/>
@@ -263,7 +267,7 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:text="Submit"
                         android:textColor="#fff"
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                 </androidx.cardview.widget.CardView>
 

@@ -87,6 +87,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 android:id="@+id/shopname"
+                                android:textSize="12sp"
                                 android:layout_marginStart="10dp"
                                 android:background="@null"
                                 android:hint="Enter your Shop Name"
@@ -119,6 +120,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:hint="Enter GST number"
+                            android:textSize="12sp"
                             android:layout_marginLeft="10dp" />
 
                     </RelativeLayout>
@@ -147,6 +149,7 @@
                             android:background="@null"
                             android:inputType="number"
                             android:maxLength="10"
+                            android:textSize="12sp"
                             android:hint="Enter the PhoneNumber"
                             android:layout_marginLeft="10dp" />
 
@@ -174,6 +177,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:hint="Enter the Email"
+                            android:textSize="12sp"
                             android:layout_marginLeft="10dp" />
 
                     </RelativeLayout>
@@ -199,6 +203,7 @@
                             android:id="@+id/distance"
                             android:layout_marginStart="10dp"
                             android:background="@null"
+                            android:textSize="12sp"
                             android:hint="Total Distance Covered"
                             android:layout_marginLeft="10dp" />
 
@@ -227,6 +232,7 @@
                             android:background="@drawable/custom_button"
                             android:textAlignment="center"
                             android:hint="Add Your Complete Address"
+                            android:textSize="12sp"
                             />
 
                     </RelativeLayout>
@@ -255,6 +261,7 @@
                             android:inputType="textPassword"
                             android:id="@+id/password"
                             android:hint="Choose Your Password"
+                            android:textSize="12sp"
                             android:layout_marginLeft="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
@@ -262,7 +269,6 @@
                             android:id="@+id/show"
                             android:layout_alignParentRight="true"
                             android:textColor="#000"
-                            android:textStyle="bold"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="15dp"
                             android:gravity="center_vertical|center_horizontal"
@@ -276,7 +282,6 @@
                             android:layout_alignParentRight="true"
                             android:textColor="#000"
                             android:layout_marginRight="20dp"
-                            android:textStyle="bold"
                             android:visibility="gone"
                             android:layout_marginTop="15dp"
                             android:gravity="center_vertical|center_horizontal"
@@ -304,7 +309,7 @@
                         android:layout_weight="3"
                         android:id="@+id/spinner"
                         android:layout_marginBottom="5dp"
-                        android:layout_height="50dp">
+                        android:layout_height="30dp">
 
                     </Spinner>
 
@@ -326,7 +331,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Add Shop Profile Image"
-                            android:textSize="18dp"
+                            android:textSize="12sp"
                             android:id="@+id/imte"
                             android:layout_marginTop="5dp"
                             android:textAlignment="center"/>
@@ -365,7 +370,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Add Shop Cover Image"
-                            android:textSize="18dp"
+                            android:textSize="12sp"
                             android:id="@+id/im"
                             android:layout_marginTop="5dp"
                             android:textAlignment="center"/>

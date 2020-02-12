@@ -176,12 +176,12 @@
                                 android:layout_marginTop="10dp"
 
                                 android:src="@drawable/adpv"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_below="@+id/im"
                                 android:layout_marginTop="0dp"
                                 android:fontFamily="@font/pt_serif_caption"
@@ -213,7 +213,7 @@
                                 android:id="@+id/imm"
                                 android:layout_marginTop="10dp"
                                 android:src="@drawable/addemv"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
 
@@ -227,7 +227,7 @@
                                 android:fontFamily="@font/pt_serif_caption"
                                 android:layout_below="@+id/imm"
                                 android:layout_marginTop="0dp"
-                                android:layout_height="match_parent"/>
+                                android:layout_height="wrap_content"/>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -253,7 +253,7 @@
                                 android:id="@+id/imf"
                                 android:layout_marginTop="10dp"
                                 android:src="@drawable/vpv"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
 
@@ -267,7 +267,7 @@
                                 android:fontFamily="@font/pt_serif_caption"
                                 android:layout_marginTop="0dp"
                                 android:gravity="center_vertical"
-                                android:layout_height="match_parent"/>
+                                android:layout_height="wrap_content"/>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -293,7 +293,7 @@
                                 android:layout_marginTop="10dp"
 
                                 android:src="@drawable/pv"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
 
@@ -307,7 +307,7 @@
                                 android:layout_below="@+id/immm"
                                 android:layout_marginTop="0dp"
                                 android:gravity="center_vertical"
-                                android:layout_height="match_parent"/>
+                                android:layout_height="wrap_content"/>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -633,7 +633,7 @@
                                 android:id="@+id/imn"
                                 android:layout_marginTop="10dp"
                                 android:src="@drawable/earv"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
 
@@ -673,7 +673,7 @@
                                 android:id="@+id/immop"
                                 android:layout_marginTop="10dp"
                                 android:src="@drawable/abov"
-                                android:layout_height="40dp"/>
+                                android:layout_height="30dp"/>
 
 
 

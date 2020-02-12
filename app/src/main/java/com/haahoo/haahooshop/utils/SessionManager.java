@@ -206,6 +206,20 @@ public class SessionManager {
     public void setcheckn(String checkn){
         sharedPreferences.edit().putString("checkn",checkn).commit();
     }
+    public String getdels(){
+
+        return  sharedPreferences.getString("dels","");
+    }
+    public void setdels(String dels){
+        sharedPreferences.edit().putString("dels",dels).commit();
+    }
+    public String getdelamount(){
+
+        return  sharedPreferences.getString("delamount","");
+    }
+    public void setdelamount(String delamount){
+        sharedPreferences.edit().putString("delamount",delamount).commit();
+    }
     public String getradio(){
 
         return  sharedPreferences.getString("radio","");

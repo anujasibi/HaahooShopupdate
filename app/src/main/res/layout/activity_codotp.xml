@@ -49,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/empID"
                 android:inputType="number"
+                android:textSize="12sp"
                 android:layout_height="50dp">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -70,6 +71,7 @@
                 android:id="@+id/empPhone"
                 android:inputType="number"
                 android:maxLength="10"
+                android:textSize="12sp"
                 android:layout_height="50dp">
 
             </com.google.android.material.textfield.TextInputEditText>

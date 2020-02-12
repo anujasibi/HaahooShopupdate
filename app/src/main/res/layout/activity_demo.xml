@@ -143,7 +143,7 @@
 
                             android:textColor="#000"
                             android:textStyle="bold"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
 
                             android:textAlignment="center"
                             android:gravity="center_vertical"
@@ -186,7 +186,7 @@
                         android:text="Product Name"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -199,6 +199,7 @@
                         android:layout_marginBottom="30dp"
                         android:gravity="center_vertical"
                         android:text="Description"
+                        android:textSize="12sp"
                         android:textColor="#000" />
 
 
@@ -210,6 +211,7 @@
                         android:layout_marginLeft="40dp"
                         android:gravity="center_vertical"
                         android:text="Price :"
+                        android:textSize="12sp"
                         android:textColor="#000"
                         android:textStyle="bold" />
 
@@ -223,6 +225,7 @@
                         android:layout_toRightOf="@+id/locat"
                         android:gravity="center_vertical"
                         android:text="Price"
+                        android:textSize="12sp"
                         android:textAlignment="viewStart"
                         android:textColor="#000" />
 
@@ -236,6 +239,7 @@
                         android:layout_marginTop="30dp"
                         android:gravity="center_vertical"
                         android:text="Discount :"
+                        android:textSize="12sp"
                         android:textColor="#000"
                         android:textStyle="bold" />
 
@@ -249,6 +253,7 @@
                         android:layout_toEndOf="@+id/owne"
                         android:layout_toRightOf="@+id/owne"
                         android:gravity="center_vertical"
+                        android:textSize="12sp"
                         android:text="Discount"
                         android:textColor="#000" />
 
@@ -263,6 +268,7 @@
                         android:layout_marginBottom="20dp"
                         android:gravity="center_vertical"
                         android:text="Stock :"
+                        android:textSize="12sp"
                         android:textColor="#000"
                         android:textStyle="bold" />
 
@@ -277,6 +283,7 @@
                         android:layout_toEndOf="@+id/gstn"
                         android:layout_toRightOf="@+id/gstn"
                         android:gravity="center_vertical"
+                        android:textSize="12sp"
                         android:text="Stock"
                         android:textColor="#000" />
 

@@ -81,6 +81,7 @@
                                 android:id="@+id/shopname"
                                 android:layout_marginStart="10dp"
                                 android:background="@null"
+                                android:textSize="12sp"
                                 android:hint="Enter the Employee Name"
                                 android:layout_marginLeft="10dp" />
 
@@ -113,6 +114,7 @@
                             android:layout_marginStart="10dp"
                             android:background="@null"
                             android:inputType="number"
+                            android:textSize="12sp"
                             android:maxLength="10"
                             android:hint="Enter the PhoneNumber"
                             android:layout_marginLeft="10dp" />
@@ -143,6 +145,7 @@
                             android:inputType="textPassword"
                             android:id="@+id/password"
                             android:hint="Choose the Password"
+                            android:textSize="12sp"
                             android:layout_marginLeft="10dp" />
                         <TextView
                             android:layout_width="wrap_content"
@@ -150,7 +153,6 @@
                             android:id="@+id/show"
                             android:layout_alignParentRight="true"
                             android:textColor="#000"
-                            android:textStyle="bold"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="15dp"
                             android:gravity="center_vertical|center_horizontal"
@@ -164,7 +166,6 @@
                             android:layout_alignParentRight="true"
                             android:textColor="#000"
                             android:layout_marginRight="20dp"
-                            android:textStyle="bold"
                             android:visibility="gone"
                             android:layout_marginTop="15dp"
                             android:gravity="center_vertical|center_horizontal"
@@ -193,7 +194,7 @@
                     android:layout_weight="3"
                     android:id="@+id/spinner"
                     android:layout_marginBottom="5dp"
-                    android:layout_height="50dp">
+                    android:layout_height="30dp">
 
                 </Spinner>
 
@@ -217,7 +218,7 @@
                     android:gravity="center_vertical"
                     android:text="Choose Employment Type"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
 
 
@@ -233,6 +234,7 @@
                         android:id="@+id/radioMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:text="Regular Employee"
                         android:checked="true" />
 
@@ -240,6 +242,7 @@
                         android:id="@+id/radioFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:text="Delivery Boy" />
 
                 </RadioGroup>

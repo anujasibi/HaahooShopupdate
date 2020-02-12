@@ -19,7 +19,7 @@
         android:maxLines="1"
         android:text="Confirm Pin"
         android:textColor="@color/white"
-        android:textSize="25dp" />
+        android:textSize="20dp" />
 
     <com.andrognito.pinlockview.IndicatorDots
         android:id="@+id/indicator_dots"

@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProductSearch"></activity>
+        <activity android:name=".DeliveryPlans"></activity>
+        <activity android:name=".ProductSearch" />
         <activity android:name=".manreg" />
         <activity android:name=".distributorreg" />
         <activity android:name=".chooseeditcat" />

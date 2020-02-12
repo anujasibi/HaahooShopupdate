@@ -42,11 +42,12 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:text="Product Name"
+                android:textSize="12sp"
                 android:layout_toEndOf="@+id/profile_image"
                 android:textAlignment="center"
                 android:textColor="#CC0033"
                 android:textStyle="bold"
-                android:textSize="16sp"
+
                />
 
             <TextView
@@ -54,12 +55,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
-                android:paddingLeft="10dp"
                 android:layout_toEndOf="@+id/profile_image"
+                android:paddingLeft="10dp"
                 android:text="Location"
                 android:textAlignment="center"
                 android:textColor="#000"
-                 />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/status"
@@ -96,11 +97,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/desc"
                 android:paddingLeft="10dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/profile_image"
-                android:text="Payment Status :  "
+                android:text="Payment: "
                 android:textAlignment="center"
+                android:textSize="12sp"
                 android:textColor="#000"
                 />
             <TextView
@@ -112,6 +114,7 @@
                 android:textStyle="bold"
                 android:layout_toEndOf="@+id/pay"
                 android:text="Status "
+                android:textSize="12sp"
                 android:textAlignment="center"
                 android:textColor="#000"
                 />
@@ -130,7 +133,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
-                app:text_size="18sp"
+                app:text_size="12sp"
                 app:text_style="bold"
 
                 app:text="Accept" />
@@ -149,7 +152,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 app:text_style="bold"
-               app:text_size="18sp"
+               app:text_size="12sp"
                 app:text="Reject" />
 
 

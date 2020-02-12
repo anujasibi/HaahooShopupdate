@@ -84,6 +84,7 @@
                             android:id="@+id/des"
                             android:background="@drawable/custom_button"
                             android:textAlignment="center"
+                            android:textSize="12sp"
                             android:hint="Add Your Coupon(for eg : NEWUSER)"
                             />
 
@@ -108,7 +109,7 @@
                         android:layout_weight="3"
                         android:id="@+id/spinner"
                         android:layout_marginBottom="5dp"
-                        android:layout_height="50dp">
+                        android:layout_height="30dp">
 
                     </Spinner>
 
@@ -136,6 +137,7 @@
                             android:textAlignment="center"
                             android:inputType="number"
                             android:hint="Add Discount"
+                            android:textSize="12sp"
                             />
 
                     </RelativeLayout>

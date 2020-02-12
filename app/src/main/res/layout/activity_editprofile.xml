@@ -229,7 +229,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Edit Shop Cover Image by clicking the image"
-                            android:textSize="18dp"
+                            android:textSize="12dp"
                             android:id="@+id/im"
                             android:layout_marginTop="5dp"
                             android:textAlignment="center"/>
@@ -267,7 +267,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Edit Shop Profile Image by clicking the image"
-                            android:textSize="18dp"
+                            android:textSize="12dp"
                             android:id="@+id/imp"
                             android:layout_marginTop="5dp"
                             android:textAlignment="center"/>

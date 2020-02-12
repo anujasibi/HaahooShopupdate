@@ -1,7 +1,9 @@
 package com.haahoo.haahooshop;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,10 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -51,6 +55,10 @@ public class SpecAdapter2 extends RecyclerView.Adapter<SpecAdapter2.ViewHolder> 
     public int id=1;
     AppCompatActivity appCompatActivity;
     FragmentManager fm;
+    EditText input;
+    public ArrayList<String> valss = new ArrayList<>();
+     EditText etComments;
+     public String other="";
 
 
 
@@ -122,32 +130,108 @@ public class SpecAdapter2 extends RecyclerView.Adapter<SpecAdapter2.ViewHolder> 
        holder.searchSpinner.setItems(listArray, -1, new SpinnerListener() {
 
             @Override
-            public void onItemsSelected(List<KeyPairBoolData> items) {
+            public void onItemsSelected(final List<KeyPairBoolData> items) {
 
                 for (int i = 0; i < items.size(); i++) {
                     if (items.get(i).isSelected()) {
-                        ArrayList<String> names = new ArrayList<>();
-                        // names.clear();
-                        names.add(downloadPojos.get(position).getName());
-                        HashMap<String, JSONObject> map1 = new HashMap<String, JSONObject>();
-                        JSONObject json = new JSONObject();
-                        try {
+                        if (!(valss.contains(items.get(i).getName()))){
 
-                            json.put("name", names.get(0));
-                            json.put("value", items.get(i).getName());
-                            map1.put("json", json);
-                            arr.put(map1.get("json"));
-                            products.put("spec", arr);
-                            sessionManager.setcatName(products.toString());
+                            valss.add(items.get(i).getName());
+                            //Toast.makeText(context1,"not present"+valss.size(),Toast.LENGTH_SHORT).show();
+                        }
+
+                       // Toast.makeText(context1,"dgfhjk"+items.get(i).getName(),Toast.LENGTH_SHORT).show();
+                        if(items.get(i).getName().trim().equals("Other")){
+                           // Toast.makeText(context1,"dgfhjk",Toast.LENGTH_SHORT).show();
+                            LayoutInflater layoutInflater=(LayoutInflater)context1.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                            final View view = layoutInflater.inflate(R.layout.xml_file_created_above, null);
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                                    context1);
+                            alertDialogBuilder.setTitle("Enter the value");
+                            alertDialogBuilder.setCancelable(false);
+                           etComments = (EditText) view.findViewById(R.id.etComments);
+
+                            alertDialogBuilder
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog,int id) {
+                                                    // get user input and set it to result
+                                                    // edit text
+                                                    //Toast.makeText(context1,"YOU ENTERED"+etComments.getText().toString(),Toast.LENGTH_SHORT).show();
+                                                    ArrayList<String> names = new ArrayList<>();
+                                                    // names.clear();
+                                                    names.add(downloadPojos.get(position).getName());
+                                                    HashMap<String, JSONObject> map1 = new HashMap<String, JSONObject>();
+                                                    JSONObject json = new JSONObject();
+                                                    try {
+
+                                                        json.put("name", names.get(0));
+                                                        json.put("value",etComments.getText().toString());
 
 
-                            Log.d("fff", "mm" + sessionManager.getcatName());
+                                                        //json.put("value", items.get(i).getName());
+                                                        map1.put("json", json);
+                                                        arr.put(map1.get("json"));
+                                                        products.put("spec", arr);
+                                                        Log.d("ggggg", "mm" + products);
+                                                        sessionManager.setcatName(products.toString());
 
-                            Log.d("fff", "mm" + products.length());
-                            //Log.d("sizedfgdfgfg11", "mm" + arr.getJSONObject(0).getString("name"));
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                                                        Log.d("fff", "mm" + sessionManager.getcatName());
+
+                                                        Log.d("fff", "mm" + products.length());
+                                                        //Log.d("sizedfgdfgfg11", "mm" + arr.getJSONObject(0).getString("name"));
+
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            })
+                                    .setNegativeButton("Cancel",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog,int id) {
+                                                    dialog.cancel();
+                                                }
+                                            });
+
+
+                            alertDialogBuilder.setView(view);
+                            alertDialogBuilder.show();
+                        }
+                        if(!(items.get(i).getName().trim().equals("Other"))) {
+                            ArrayList<String> names = new ArrayList<>();
+                            // names.clear();
+
+                                //Toast.makeText(context1, "True"+valss, Toast.LENGTH_SHORT).show();
+
+                            names.add(downloadPojos.get(position).getName());
+                            HashMap<String, JSONObject> map1 = new HashMap<String, JSONObject>();
+                            JSONObject json = new JSONObject();
+                            try {
+//                                if (!(items.get(i).getName().equals("Other"))) {
+//                                if ((valss.contains(items.get(i).getName()))){
+
+                                    json.put("name", names.get(0));
+                                    json.put("value", items.get(i).getName());
+                                    //json.put("value", valss.get(i));
+//                                }
+
+                                //json.put("value", items.get(i).getName());
+                                map1.put("json", json);
+                                arr.put(map1.get("json"));
+                                products.put("spec", arr);
+                                sessionManager.setcatName(products.toString());
+
+
+                                Log.d("fff", "mm" + sessionManager.getcatName());
+
+                                Log.d("fff", "mm" + products.length());
+                                //Log.d("sizedfgdfgfg11", "mm" + arr.getJSONObject(0).getString("name"));
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 

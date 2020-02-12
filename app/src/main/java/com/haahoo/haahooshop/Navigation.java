@@ -437,6 +437,9 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                     case R.id.nav_photos:
                         startActivity(new Intent(Navigation.this, AddBankDetails.class));
                          break;
+                    case R.id.nav_del:
+                        startActivity(new Intent(Navigation.this,DeliveryPlans.class));
+                        break;
 
                     case R.id.nav_notifications:
                         startActivity(new Intent(Navigation.this,Earnings.class));

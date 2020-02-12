@@ -42,19 +42,20 @@ public class finaladd extends AppCompatActivity {
     Spinner spinner;
     public String status="";
     public String status1="";
+    public String statu="";
     ArrayList<String> areas = new ArrayList<String>();
     String delivery_type = "null";
     //String URL="https://testapi.creopedia.com/api_shop_app/list_shop_cat/ ";
     //String URL="https://haahoo.in/api_shop_app/list_shop_cat/ ";
     String URL= Global.BASE_URL+"api_shop_app/list_shop_cat/ ";
-    CheckBox checkBox1,checkBox2,checkBox3,checkBox4,check,checkm,checks1,checks2;
+    CheckBox checkBox1,checkBox2,checkBox3,checkBox4,check,checkm,checks1,checks2,free,notfree;
     private RadioGroup radioSexGroup;
     private RadioButton one,two,three;
     SessionManager sessionManager;
     ImageView imageView;
-    TextInputLayout ress;
-    TextInputEditText resell;
-    TextView save,res;
+    TextInputLayout ress,paida;
+    TextInputEditText resell,paidamount;
+    TextView save,res,paid;
     Activity activity = this;
 
     @Override
@@ -78,6 +79,8 @@ public class finaladd extends AppCompatActivity {
         res=findViewById(R.id.res);
         ress=findViewById(R.id.ress);
         resell=findViewById(R.id.resellprice);
+
+
         checkBox1 = findViewById(R.id.checkBox);
         checkBox2 = findViewById(R.id.checkBox1);
         checkBox3 = findViewById(R.id.checkBox2);
@@ -86,6 +89,7 @@ public class finaladd extends AppCompatActivity {
         checkm=findViewById(R.id.checkBo1);
         checks1=findViewById(R.id.checkBot);
         checks2=findViewById(R.id.checkBo1t);
+
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
         one=findViewById(R.id.radioMale);
         two=findViewById(R.id.radioFemale);
@@ -129,6 +133,29 @@ public class finaladd extends AppCompatActivity {
             }
         });
 
+      /*  free.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notfree.setChecked(false);
+                statu="0";
+                sessionManager.setdels(statu);
+                paid.setVisibility(View.GONE);
+                paida.setVisibility(View.GONE);
+                paidamount.setText("0");
+            }
+        });
+        notfree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                free.setChecked(false);
+                statu="1";
+                paid.setVisibility(View.VISIBLE);
+                paida.setVisibility(View.VISIBLE);
+                sessionManager.setdels(statu);
+
+            }
+        });*/
+
         checks1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,6 +172,8 @@ public class finaladd extends AppCompatActivity {
                 sessionManager.setaddshop(status1);
             }
         });
+
+
 
 
         checkBox1.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +247,9 @@ public class finaladd extends AppCompatActivity {
                 }
                 if(!(distance.getText().length()==0||delivery_type.equals("null")||status.equals(""))) {
                     if (!(resell.getText().toString().length() == 0)) {
+                       // if(!(paidamount.getText().toString().length() == 0)){
+                            sessionManager.setdelamount(paidamount.getText().toString());
+
                         sessionManager.setreselprice(resell.getText().toString());
                         Log.d("mmmmmmmmmmmm", "mm" + sessionManager.getreselprice());
                         sessionManager.setcatdistance(distance.getText().toString());
@@ -232,8 +264,9 @@ public class finaladd extends AppCompatActivity {
                                 one.getText(), Toast.LENGTH_SHORT).show();*/
 
                         startActivity(new Intent(finaladd.this, subscription.class));
-                    }
+                  //  }
                 }
+            }
             }
         });
 

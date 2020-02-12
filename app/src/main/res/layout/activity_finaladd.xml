@@ -74,6 +74,7 @@
                                 android:layout_width="match_parent"
                                 android:id="@+id/name"
                                 android:inputType="number"
+                                android:textSize="12sp"
                                 android:hint="Distance Covered(In KiloMeters)"
                                 android:layout_marginRight="2dp"
                                 android:layout_marginBottom="2dp"
@@ -116,13 +117,14 @@
                         android:text="Availability"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:textSize="15sp" />
 
 
                     <CheckBox
                         android:id="@+id/checkBox"
                         android:layout_width="130dp"
                         android:layout_marginTop="10dp"
+                        android:textSize="12sp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="Online Mart" />
@@ -130,6 +132,7 @@
                     <CheckBox
                         android:id="@+id/checkBox1"
                         android:layout_width="130dp"
+                        android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:text="Shop Mart" />
@@ -139,11 +142,13 @@
                         android:layout_width="130dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:text="Both Mart" />
 
                     <CheckBox
                         android:id="@+id/checkBox3"
                         android:layout_width="130dp"
+                        android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:text="Pick from Shop" />
@@ -161,7 +166,7 @@
                         android:text="Resell Availability"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:textSize="15sp" />
 
 
                     <CheckBox
@@ -169,12 +174,14 @@
                         android:layout_width="130dp"
                         android:layout_marginTop="10dp"
                         android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
                         android:text="Yes" />
 
                     <CheckBox
                         android:id="@+id/checkBo1"
                         android:layout_width="130dp"
+                        android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:text="No" />
@@ -192,7 +199,7 @@
                         android:text="Set the maximum resell price"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:textSize="15sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -212,12 +219,10 @@
                             android:hint="Enter the Maximum Resell Price"
                             android:layout_marginRight="2dp"
                             android:layout_marginBottom="2dp"
+                            android:textSize="12sp"
                             android:layout_height="match_parent" />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
 
@@ -245,7 +250,7 @@
                         android:text="Delivery Type"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:textSize="15sp" />
 
 
 
@@ -262,16 +267,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Express Delivery"
+                            android:textSize="12sp"
                             android:checked="true" />
 
                         <RadioButton
                             android:id="@+id/radioFemale"
                             android:layout_width="wrap_content"
+                            android:textSize="12sp"
                             android:layout_height="wrap_content"
                             android:text="Normal Delivery" />
                         <RadioButton
                             android:id="@+id/radioFe"
                             android:layout_width="wrap_content"
+                            android:textSize="12sp"
                             android:layout_height="wrap_content"
                             android:text="Custom Delivery" />
 
@@ -290,7 +298,7 @@
                     android:text="Do you want to add product to MyShop"
                     android:textAlignment="center"
                     android:textColor="#000"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
 
                 <CheckBox
@@ -298,12 +306,14 @@
                     android:layout_width="130dp"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:layout_gravity="center_horizontal"
                     android:text="Yes" />
 
                 <CheckBox
                     android:id="@+id/checkBo1t"
                     android:layout_width="130dp"
+                    android:textSize="12sp"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
                     android:text="No" />
@@ -320,7 +330,7 @@
                     android:text="Continue"
                     android:textAlignment="center"
                     android:textColor="#fff"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
 
 
