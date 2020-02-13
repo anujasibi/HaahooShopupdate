@@ -248,7 +248,7 @@ public class finaladd extends AppCompatActivity {
                 if(!(distance.getText().length()==0||delivery_type.equals("null")||status.equals(""))) {
                     if (!(resell.getText().toString().length() == 0)) {
                        // if(!(paidamount.getText().toString().length() == 0)){
-                            sessionManager.setdelamount(paidamount.getText().toString());
+                        //    sessionManager.setdelamount(paidamount.getText().toString());
 
                         sessionManager.setreselprice(resell.getText().toString());
                         Log.d("mmmmmmmmmmmm", "mm" + sessionManager.getreselprice());

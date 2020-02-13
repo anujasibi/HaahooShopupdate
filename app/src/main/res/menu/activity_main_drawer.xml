@@ -30,9 +30,8 @@
 
         <item
             android:id="@+id/nav_del"
-            android:icon="@drawable/ic_add_circle_black_24dp"
+            android:icon="@drawable/deliveryadd"
             android:title="Add Delivery Plans" />
-
 
         <item
             android:id="@+id/nav_notifications"

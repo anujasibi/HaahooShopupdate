@@ -31,7 +31,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DeliveryPlans extends AppCompatActivity {
+public class EditDelivery extends AppCompatActivity {
 
     TextInputEditText defaultv;
     EditText distance;
@@ -39,7 +39,7 @@ public class DeliveryPlans extends AppCompatActivity {
     EditText ordamount;
     EditText outamount;
     SessionManager sessionManager;
-    public String url= Global.BASE_URL+"api_shop_app/shop_delivery_det/";
+    public String url= Global.BASE_URL+"api_shop_app/edit_delivery_details";
     Context context=this;
     TextView save;
     Activity activity=this;
@@ -52,7 +52,7 @@ public class DeliveryPlans extends AppCompatActivity {
         getSupportActionBar().hide();
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery_plans);
+        setContentView(R.layout.activity_edit_delivery);
 
         Window window = activity.getWindow();
 
@@ -74,11 +74,10 @@ public class DeliveryPlans extends AppCompatActivity {
         imageView3=findViewById(R.id.imageView3);
         save=findViewById(R.id.save);
         sessionManager=new SessionManager(this);
-
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,Navigation.class));
+                startActivity(new Intent(context,viewdeliveryplan.class));
             }
         });
 
@@ -99,7 +98,7 @@ public class DeliveryPlans extends AppCompatActivity {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                    Log.d("response","mmm"+response);
+                Log.d("response","mmm"+response);
                 try {
                     JSONObject jsonObject=new JSONObject(response);
                     String code=jsonObject.optString("code");
@@ -121,7 +120,7 @@ public class DeliveryPlans extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DeliveryPlans.this,"Internal Server Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditDelivery.this,"Internal Server Error",Toast.LENGTH_SHORT).show();
             }
         }
         ){

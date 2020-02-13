@@ -244,8 +244,8 @@ public class paymentnew extends Activity implements PaymentResultListener {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("shop_id", sessionManager.getpayid());
-                Log.d("driver","mm"+sessionManager.getpayid());
+             /*   params.put("shop_id", sessionManager.getpayid());
+                Log.d("driver","mm"+sessionManager.getpayid());*/
                 params.put("payment_amount","200000");
                 params.put("payment_id",razorid);
                 Log.d("paymentid",razorid);
