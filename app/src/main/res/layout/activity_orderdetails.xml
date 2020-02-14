@@ -330,8 +330,6 @@
                     android:textColor="#000"
                     android:layout_marginLeft="40dp"
                     android:layout_height="wrap_content"/>
-
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_toRightOf="@id/cat"
@@ -346,13 +344,173 @@
                     android:layout_height="25dp"
                     android:layout_marginRight="5dp" />
 
+
+                <TextView
+                    android:id="@+id/res"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center_vertical"
+                    android:text="Set the Expected Time For Delivery"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/state"
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ln"
+                    android:layout_below="@+id/res"
+                    android:layout_marginLeft="5dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:text="Days"/>
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:id="@+id/days"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/lnn"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/res"
+                    android:layout_marginLeft="5dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        android:text="Hours"/>
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        android:id="@+id/hours"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/lnnn"
+                    android:layout_below="@+id/res"
+                    android:layout_marginLeft="5dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="12sp"
+                        android:text="Minutes"/>
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:id="@+id/minutes"/>
+
+
+                </LinearLayout>
+
+
+
+
+                <TextView
+                    android:id="@+id/yu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/ln"
+                    android:gravity="center_vertical"
+                    android:text="Delivery Availability"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+
+                <CheckBox
+                    android:id="@+id/checkBo"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/yu"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Own Delivery" />
+
+                <CheckBox
+                    android:id="@+id/checkBo1"
+                    android:layout_width="match_parent"
+                    android:textSize="12sp"
+                    android:layout_below="@+id/checkBo"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="HaaHoo Delivery" />
+
+                <CheckBox
+                    android:id="@+id/checkBo2"
+                    android:layout_width="match_parent"
+                    android:textSize="12sp"
+                    android:layout_below="@+id/checkBo1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Pick From Shop" />
+
+
+
+
+
+
+
+
+
                 <TextView
                     android:layout_width="match_parent"
 
                     android:text="Click Here To Start Dispatching"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/state"
-                    android:layout_marginTop="30dp"
+                    android:layout_below="@+id/checkBo2"
+                    android:layout_marginTop="20dp"
                     android:id="@+id/sub"
                     android:textStyle="bold"
                     android:textColor="#FFF"
@@ -368,7 +526,7 @@
                     android:text="Click Here Choose Dispatch Date"
                     android:visibility="gone"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/state"
+                    android:layout_below="@+id/checkBo2"
                     android:layout_marginTop="30dp"
                     android:id="@+id/date"
                     android:textStyle="bold"

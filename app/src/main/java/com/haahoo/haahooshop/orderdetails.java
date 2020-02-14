@@ -13,7 +13,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -28,6 +30,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 import com.squareup.picasso.Picasso;
@@ -51,8 +54,13 @@ public class orderdetails extends AppCompatActivity {
     private String tim="null";
     SessionManager sessionManager;
     private String URLline = Global.BASE_URL+"virtual_order_management/shop_order_dispatched/";
+    private String url = Global.BASE_URL+"virtual_order_management/set_del_time/";
     private ProgressDialog dialogs ;
     Activity activity = this;
+    public String delivery_type="";
+    EditText days,hours,min;
+
+    CheckBox check1,check2,check3;
 
 
 
@@ -77,7 +85,13 @@ public class orderdetails extends AppCompatActivity {
         dates=findViewById(R.id.date);
         time=findViewById(R.id.time);
         sub=findViewById(R.id.sub);
+        days=findViewById(R.id.days);
+        hours=findViewById(R.id.hours);
+        min=findViewById(R.id.minutes);
         submit=findViewById(R.id.submit);
+        check1=findViewById(R.id.checkBo);
+        check2=findViewById(R.id.checkBo1);
+        check3=findViewById(R.id.checkBo2);
         sessionManager=new SessionManager(this);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +116,7 @@ public class orderdetails extends AppCompatActivity {
         ids=bundle.getString("id");
 
 
+
       //  Picasso.with(context).load(image).into(imageView);
         Picasso.get().load(image).into(imageView);
         pdtname.setText(pdtnames);
@@ -113,6 +128,9 @@ public class orderdetails extends AppCompatActivity {
         pincode.setText(pincodes);
         city.setText(citys);
         state.setText(states);
+        days.setText("0");
+        hours.setText("0");
+        min.setText("0");
         Window window = activity.getWindow();
 
 // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -134,6 +152,44 @@ public class orderdetails extends AppCompatActivity {
                 submit.setVisibility(View.VISIBLE);
             }
         });
+
+        check1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (((CheckBox) view).isChecked()) {
+                    delivery_type = "1";
+                    check2.setChecked(false);
+                    check3.setChecked(false);
+                    //sessionManager.setcheck(delivery_type);
+                    //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        check2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (((CheckBox) view).isChecked()) {
+                    delivery_type = "0";
+                    check1.setChecked(false);
+                    check3.setChecked(false);
+                    //sessionManager.setcheck(delivery_type);
+                    //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        check3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (((CheckBox) view).isChecked()) {
+                    delivery_type = "2";
+                    check2.setChecked(false);
+                    check1.setChecked(false);
+                    //sessionManager.setcheck(delivery_type);
+                    //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
 
         dates.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +245,7 @@ public class orderdetails extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                subm();
                 if(dat.equals("null")||tim.equals("null")){
                     Toast.makeText(context,"Please choose dispatch date and time",Toast.LENGTH_SHORT).show();
                 }
@@ -301,6 +358,59 @@ public class orderdetails extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
 
+    }
+
+
+    private void subm(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    Log.d("mm","mmmmmmm"+response);
+                    String code=jsonObject.optString("code");
+                    if(code.equals("200")){
+                        Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
+                    }
+                    if(!(code.equals("200"))){
+                        Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context,"Internal Server Error",Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        ){
+            @Override
+
+            public Map<String,String>getHeaders(){
+                Map<String,String>params=new HashMap<>();
+                params.put("Authorization","Token "+sessionManager.getTokens());
+                return params;
+            }
+            @Override
+
+            protected Map<String,String>getParams(){
+                Map<String,String>params=new HashMap<>();
+                params.put("order_id",ids);
+                params.put("accepted","1");
+                params.put("days",days.getText().toString());
+                params.put("hour",hours.getText().toString());
+                params.put("min",min.getText().toString());
+                params.put("own_del",delivery_type);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue=Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 
     @Override
