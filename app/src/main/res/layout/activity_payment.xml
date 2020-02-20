@@ -26,8 +26,9 @@
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:background="#fff"
+        android:backgroundTint="#008000"
         android:textSize="14sp"
-        android:textColor="#5C25B7"
+        android:textColor="#fff"
         android:text="Skip For Now >>"
         />
 

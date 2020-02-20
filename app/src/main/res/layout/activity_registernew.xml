@@ -316,7 +316,7 @@
                     android:layout_width="match_parent"
                     android:text="Apply"
                     android:background="@drawable/applygrad"
-                    android:textColor="#5c25b7"
+                    android:textColor="#fff"
                     android:textStyle="bold"
                     android:id="@+id/app"
                     android:gravity="center"
@@ -346,7 +346,7 @@
                         android:layout_width="match_parent"
                         android:background="@drawable/remgrad"
                         android:text="Remove"
-                        android:textColor="#5C25B7"
+                        android:textColor="#fff"
 
                        android:textStyle="bold"
 

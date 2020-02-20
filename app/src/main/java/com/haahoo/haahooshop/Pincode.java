@@ -101,6 +101,7 @@ public class Pincode extends AppCompatActivity {
         mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
         mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
 
+
         mPinLockView.attachIndicatorDots(mIndicatorDots);
         mPinLockView.setPinLockListener(mPinLockListener);
         //mPinLockView.setCustomKeySet(new int[]{2, 3, 1, 5, 9, 6, 7, 0, 8, 4});
@@ -152,6 +153,19 @@ public class Pincode extends AppCompatActivity {
                         Intent intent = new Intent(Pincode.this, Navigation.class);
                         startActivity(intent);
                     }
+
+                    if(payment_status.equals("Payment not done")&&status.equals("200")){
+                        Toast.makeText(Pincode.this, "Please do payment", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Pincode.this, Payment.class);
+                        startActivity(intent);
+
+                    }
+                    if(role_type.equals("")&&payment_status.equals("Payment done")){
+
+                        Toast.makeText(Pincode.this, "Login Failed.Please choose your role for further process", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Pincode.this, choose.class);
+                        startActivity(intent);
+                    }
 //                    if(role_type.equals("")||payment_status.equals("Payment not done")&&status.equals("200")){
 //                        Toast.makeText(Pincode.this, "Login Failed.Please do payment", Toast.LENGTH_LONG).show();
 //                        Intent intent = new Intent(Pincode.this, paymentnew.class);
@@ -166,6 +180,8 @@ public class Pincode extends AppCompatActivity {
 //                    }
                     if (status.equals("203")){
                         Toast.makeText(Pincode.this, "Failed", Toast.LENGTH_LONG).show();
+                        mPinLockView.resetPinLockView();
+
 
 
                     }

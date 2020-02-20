@@ -199,7 +199,7 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
                             String total=obj.optString("total");
                             JSONArray dataArray  = obj.getJSONArray("data");
                             names = new ArrayList<>();
-
+                            Log.d("mmmm","mmgdfgd"+response);
                             for (int i = 0; i < dataArray.length(); i++) {
 
                                 Item playerModel = new Item();
@@ -243,6 +243,7 @@ public class ProductSearch extends AppCompatActivity  implements DataTransferInt
             protected Map<String,String>getParams(){
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("search_key", editTextSearch.getText().toString());
+                params.put("cat_id",sessionManager.getcatrid());
                 return params;
             }
 

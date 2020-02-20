@@ -20,7 +20,11 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EditDelivery"></activity>
+        <activity android:name=".ProdMan"></activity>
+        <activity android:name=".editmaincatee" />
+        <activity android:name=".AddBankDetail" />
+        <activity android:name=".chooseeditcatt" />
+        <activity android:name=".EditDelivery" />
         <activity android:name=".viewdeliveryplan" />
         <activity android:name=".DeliveryPlans" />
         <activity android:name=".ProductSearch" />
@@ -157,6 +161,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
 
         <provider
             android:name="androidx.core.content.FileProvider"

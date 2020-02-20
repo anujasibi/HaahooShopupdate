@@ -173,7 +173,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         carda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context,Productmanager.class);
+                Intent intent=new Intent(context,ProdMan.class);
                 startActivity(intent);
             }
         });

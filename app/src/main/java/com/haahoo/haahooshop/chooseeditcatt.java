@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,24 +35,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class choosepdtcategory extends AppCompatActivity {
+public class chooseeditcatt extends AppCompatActivity {
 
     private RecyclerView offerRecyclerView;
     ArrayList<OffersModel> birdList=new ArrayList<>();
     Activity activity=this;
     ImageView imageView3;
     Context context=this;
-   // String URL="https://testapi.creopedia.com/api_shop_app/all_cat_shop/ ";
-   // String URL="https://haahoo.in/api_shop_app/all_cat_shop/ ";
+    TextView add;
+    // String URL="https://testapi.creopedia.com/api_shop_app/all_cat_shop/ ";
+    // String URL="https://haahoo.in/api_shop_app/all_cat_shop/ ";
     String URL= Global.BASE_URL+"api_shop_app/all_cat_shop/ ";
     SessionManager sessionManager;
-    TextView add;
+    ArrayList<String>idn=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE); // will hide the title
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choosepdtcategory);
+        setContentView(R.layout.activity_chooseeditcatt);
 
         sessionManager=new SessionManager(this);
 
@@ -66,20 +68,21 @@ public class choosepdtcategory extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,ProdMan.class));
+                startActivity(new Intent(context,choosepdtcategory.class));
             }
         });
 
-        offerRecyclerView = (RecyclerView) findViewById(R.id.offers_lst);
 
         add=findViewById(R.id.add);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,chooseeditcatt.class));
+                startActivity(new Intent(chooseeditcatt.this,editmaincatee.class));
             }
         });
+
+        offerRecyclerView = (RecyclerView) findViewById(R.id.offers_lst);
 
 
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(this);
@@ -109,20 +112,24 @@ public class choosepdtcategory extends AppCompatActivity {
                     JSONObject jsonObject=new JSONObject(response);
                     JSONArray jsonArray=jsonObject.getJSONArray("data");
                     if(jsonArray.length() == 0){
-                        Toast.makeText(choosepdtcategory.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(chooseeditcatt.this,"Nothing to display",Toast.LENGTH_SHORT).show();
                     }
                     for(int i=0;i<jsonArray.length();i++){
                         OffersModel playerModel = new OffersModel();
                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
                         String country=jsonObject1.getString("name");
                         String id=jsonObject1.getString("id");
+                        idn.add("\"" +id+"\"" );
+                        Global.hashmap.put("categoryfirst"+String.valueOf(i),id);
+                        Log.d("ghjklkj","mm"+idn);
+                        Global.trr=idn;
                         playerModel.setName(country);
                         playerModel.setRadio(id);
 
                         birdList.add(playerModel);
 
 
-                        choosepdtcategoryadapter upcomingAdapter=new choosepdtcategoryadapter(birdList, context);
+                        editchoosepdtadapter upcomingAdapter=new editchoosepdtadapter(birdList, context);
                         offerRecyclerView.setAdapter(upcomingAdapter);
                         offerRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
 
@@ -156,6 +163,6 @@ public class choosepdtcategory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(context,ProdMan.class));
+        startActivity(new Intent(context,choosepdtcategory.class));
     }
 }

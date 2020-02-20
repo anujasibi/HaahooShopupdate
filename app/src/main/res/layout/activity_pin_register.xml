@@ -17,7 +17,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:maxLines="1"
-        android:text="Register the Pin"
+        android:text="Register Your Pin"
         android:textColor="@color/white"
         android:textSize="25dp" />
 

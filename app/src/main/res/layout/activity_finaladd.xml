@@ -163,7 +163,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="40dp"
                         android:gravity="center_vertical"
-                        android:text="Resell Availability"
+                        android:text="Resell Availability(Verification Required)"
                         android:textAlignment="center"
                         android:textColor="#000"
                         android:textSize="15sp" />

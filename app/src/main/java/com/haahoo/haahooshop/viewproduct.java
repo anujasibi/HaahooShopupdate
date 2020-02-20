@@ -69,7 +69,7 @@ public class viewproduct extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(viewproduct.this,Navigation.class));
+                startActivity(new Intent(viewproduct.this,ProdMan.class));
             }
         });
         Window window = activity.getWindow();
@@ -247,7 +247,7 @@ public class viewproduct extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(viewproduct.this,Productmanager.class));
+        startActivity(new Intent(viewproduct.this,ProdMan.class));
 
     }
 }

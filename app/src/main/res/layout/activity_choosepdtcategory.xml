@@ -51,6 +51,10 @@
 
     </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/offers_title"
         android:layout_width="match_parent"
@@ -70,10 +74,27 @@
         android:id="@+id/offers_lst"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
+        android:layout_below="@+id/offers_title"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:layout_marginTop="16dp"
        />
 
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="#5C25B7"
+            android:text="Edit/Add Category"
+            android:id="@+id/add"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:gravity="center_vertical"/>
+
+
+        </RelativeLayout>
     </LinearLayout>
     </ScrollView>
     </LinearLayout>

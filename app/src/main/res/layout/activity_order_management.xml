@@ -38,7 +38,7 @@
 
     </RelativeLayout>
 
-    <TextView
+  <!--  <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         android:layout_below="@+id/re"
         android:layout_marginTop="20dp"
         tools:ignore="MissingConstraints" />
-
+-->
 
 
 
@@ -68,7 +68,7 @@
         android:layout_height="15dp"
         android:src="@drawable/dot"
         android:id="@+id/dot1"
-        android:layout_below="@+id/tr"
+        android:layout_below="@+id/re"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"/>
 
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/dot1"
         android:text="View Upcoming Orders"
-        android:layout_below="@+id/tr"
+        android:layout_below="@+id/re"
         android:id="@+id/upor"
         android:layout_marginTop="18dp"
         android:layout_marginStart="10dp"

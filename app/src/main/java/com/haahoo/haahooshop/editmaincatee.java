@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class editmaincate extends AppCompatActivity {
+public class editmaincatee extends AppCompatActivity {
     ArrayList<RowItem> birdList=new ArrayList<>();
     Activity activity = this;
     ImageView imj;
@@ -101,7 +101,8 @@ public class editmaincate extends AppCompatActivity {
                     Toast.makeText(context,"Please choose atleast one category",Toast.LENGTH_SHORT).show();
                 }
                 if(!(sessionManager.getcat().equals(""))){
-                   // Toast.makeText(context,"Succesfully Updated",Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(context,"Succesfully Updated",Toast.LENGTH_SHORT).show();
+
                     editcat();
                 }
 
@@ -116,7 +117,7 @@ public class editmaincate extends AppCompatActivity {
 
 // finally change the color
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
-        dialog=new ProgressDialog(editmaincate.this,R.style.MyAlertDialogStyle);
+        dialog=new ProgressDialog(editmaincatee.this,R.style.MyAlertDialogStyle);
         dialog.setMessage("Loading");
         dialog.show();
 
@@ -173,7 +174,7 @@ public class editmaincate extends AppCompatActivity {
     }
 
     private void submituser(){
-        RequestQueue queue = Volley.newRequestQueue(editmaincate.this);
+        RequestQueue queue = Volley.newRequestQueue(editmaincatee.this);
 
         //this is the url where you want to send the request
 
@@ -198,7 +199,7 @@ public class editmaincate extends AppCompatActivity {
                             JSONArray dataArray  = obj.getJSONArray("data");
 
                             if(dataArray.length() == 0){
-                                Toast.makeText(editmaincate.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(editmaincatee.this,"Nothing to display",Toast.LENGTH_SHORT).show();
                             }
 
                             for (int i = 0; i < dataArray.length(); i++) {
@@ -320,7 +321,7 @@ public class editmaincate extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 dialog.dismiss();
-                Toast.makeText(editmaincate.this,"Internal Server Error",Toast.LENGTH_LONG).show();
+                Toast.makeText(editmaincatee.this,"Internal Server Error",Toast.LENGTH_LONG).show();
 
 
             }
@@ -356,11 +357,11 @@ public class editmaincate extends AppCompatActivity {
 
                             Log.d("code","mm"+status);
                             if(status.equals("200")){
-                               startActivity(new Intent(context,chooseeditcat.class));
-                                Toast.makeText(editmaincate.this, "Successful", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(context,choosepdtcategory.class));
+                                Toast.makeText(editmaincatee.this, "Successful", Toast.LENGTH_LONG).show();
                             }
                             else{
-                                Toast.makeText(editmaincate.this, "Failed."+ot, Toast.LENGTH_LONG).show();
+                                Toast.makeText(editmaincatee.this, "Failed."+ot, Toast.LENGTH_LONG).show();
 
 
                             }
@@ -378,7 +379,7 @@ public class editmaincate extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         dialog.dismiss();
-                        Toast.makeText(editmaincate.this,error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(editmaincatee.this,error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
@@ -409,8 +410,8 @@ public class editmaincate extends AppCompatActivity {
 
     }
 
-
-
-
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(context,chooseeditcatt.class));
+    }
 }

@@ -60,6 +60,7 @@ public class Earnings extends AppCompatActivity {
     TextView tex,texx,text;
     EditText input;
     private String URLline = Global.BASE_URL+"shop_bank_details/shop_bank_withdrawal/";
+    public String total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +102,14 @@ public class Earnings extends AppCompatActivity {
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    withdraw();
-                                    Toast.makeText(getApplicationContext(), "Text entered is " + input.getText().toString(), Toast.LENGTH_SHORT).show();
+                                    if(Integer.parseInt(input.getText().toString())>Integer.parseInt(total)){
+                                        input.setError("Please enter valid amount");
+                                        Toast.makeText(getApplicationContext(), "Amount is greater than Earned Amount", Toast.LENGTH_SHORT).show();
+                                    }
+                                    if(!(Integer.parseInt(input.getText().toString())>Integer.parseInt(total))) {
+                                        withdraw();
+                                    }
+
                                 }
                             });
                             builder.show();
@@ -216,6 +223,11 @@ public class Earnings extends AppCompatActivity {
                                 Intent intent = new Intent(Earnings.this, Earnings.class);
                                 startActivity(intent);
                             }
+                            if(ot.equals("Fill bank details")){
+                                Toast.makeText(Earnings.this, "Failed."+ot, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Earnings.this, AddBankDetail.class);
+                                startActivity(intent);
+                            }
                             else{
                                 Toast.makeText(Earnings.this, "Failed."+ot, Toast.LENGTH_LONG).show();
 
@@ -280,7 +292,7 @@ public class Earnings extends AppCompatActivity {
 
                             // amount.setText(obj.optString("total"));
                             birdList = new ArrayList<>();
-                            String total=obj.optString("total");
+                             total=obj.optString("total");
                             tex.setText("₹ "+total);
                             JSONArray dataArray  = obj.getJSONArray("data");
 

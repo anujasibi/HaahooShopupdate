@@ -236,9 +236,9 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, choose.class);
                                 startActivity(intent);
                             }
-                            if(ot.equals("You are not approved")&&(!role_type.equals(""))){
+                            /*if(ot.equals("You are not approved")&&(!role_type.equals(""))){
                                 Toast.makeText(MainActivity.this, "You are not approved. Please wait until your verification has been cleared", Toast.LENGTH_LONG).show();
-                            }
+                            }*/
                           /*  if((!role_type.equals(""))&&payment_status.equals("Payment not done")){
 
                                 Toast.makeText(MainActivity.this, "Login Failed.Please choose your role for further process", Toast.LENGTH_LONG).show();
