@@ -1,11 +1,12 @@
 package com.haahoo.haahooshop;
 
 
-import android.os.Bundle;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -32,6 +33,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE); // will hide the title
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
 
         // Checking for first time launch - before calling setContentView()
@@ -54,11 +57,13 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext = (Button) findViewById(R.id.btn_next);
 
 
-        // layouts of welcome sliders
+        // layouts of all welcome sliders
+        // add few more layouts if you want
         layouts = new int[]{
                 R.layout.welcome_slide1,
-                R.layout.welcome_slide2
-        };
+                R.layout.welcome_slide2,
+                R.layout.welcome_slide3,
+                R.layout.welcome_slide4};
 
         // adding bottom dots
         addBottomDots(0);
@@ -66,7 +71,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // making notification bar transparent
         changeStatusBarColor();
 
-   //     myViewPagerAdapter = new MyViewPagerAdapter();
+        myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
@@ -80,7 +85,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // checking for last page if true launch MainActivity
+                // checking for last page
+                // if last page home screen will be launched
                 int current = getItem(+1);
                 if (current < layouts.length) {
                     // move to next screen
@@ -101,7 +107,7 @@ public class WelcomeActivity extends AppCompatActivity {
         dotsLayout.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
-            dots[i].setText(Html.fromHtml("?"));
+            dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
             dots[i].setTextColor(colorsInactive[currentPage]);
             dotsLayout.addView(dots[i]);
@@ -117,7 +123,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, splashscreen.class));
         finish();
     }
 
@@ -151,8 +157,9 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     };
 
-    // Making notification bar transparent
-
+    /**
+     * Making notification bar transparent
+     */
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -167,14 +174,8 @@ public class WelcomeActivity extends AppCompatActivity {
     public class MyViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
-        public MyViewPagerAdapter(FragmentManager fm) {
-            super(fm);
+        public MyViewPagerAdapter() {
         }
-
-       /* public MyViewPagerAdapter() {
-
-              super();
-        }*/
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {

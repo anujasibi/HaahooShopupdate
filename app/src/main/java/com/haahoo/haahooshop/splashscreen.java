@@ -3,10 +3,13 @@ package com.haahoo.haahooshop;
 
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class splashscreen extends AppCompatActivity {
+public class splashscreen extends AppCompatActivity implements ForceUpdateChecker.OnUpdateNeededListener{
     Activity activity = this;
     SessionManager sessionManager;
     Handler handler;
@@ -56,6 +59,8 @@ public class splashscreen extends AppCompatActivity {
 
        checkdeviceid();
 
+
+        ForceUpdateChecker.with(this).onUpdateNeeded(this).check();
 
 
 
@@ -164,5 +169,33 @@ public class splashscreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(splashscreen.this);
         requestQueue.add(stringRequest);
     }
+
+    @Override
+    public void onUpdateNeeded(final String updateUrl) {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("New version available")
+                .setMessage("Please, update app to new version to continue reposting.")
+                .setPositiveButton("Update",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                redirectStore(updateUrl);
+                            }
+                        }).setNegativeButton("No, thanks",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        }).create();
+        dialog.show();
+    }
+
+    private void redirectStore(String updateUrl) {
+        final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 
 }
