@@ -125,6 +125,8 @@ public class stepper extends AppCompatActivity {
         device_id =  Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         sessionManager=new SessionManager(this);
 
+        address.setText(sessionManager.getaddres());
+
         gstno.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -398,7 +400,7 @@ public class stepper extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(context,choose.class));
+        startActivity(new Intent(context,FetchLocationNew.class));
     }
 }
 

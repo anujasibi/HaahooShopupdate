@@ -53,7 +53,7 @@ public class choose extends AppCompatActivity {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,stepper.class));
+                startActivity(new Intent(context,FetchLocationNew.class));
                 sessionManager.setrole(textView.getText().toString());
                 Log.d("roleeree","mmm"+sessionManager.getrole());
 

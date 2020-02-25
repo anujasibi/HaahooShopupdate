@@ -385,6 +385,15 @@ public class SessionManager {
         sharedPreferences.edit().putString("district",district).commit();
     }
 
+    public String getaddres(){
+
+        return  sharedPreferences.getString("addres","");
+    }
+    public void setaddres(String addres){
+        sharedPreferences.edit().putString("addres",addres).commit();
+    }
+
+
 
 
 }
