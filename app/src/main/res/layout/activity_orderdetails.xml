@@ -45,9 +45,29 @@
     </RelativeLayout>
 
 
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:textAlignment="center"
+            android:background="#f00000"
+            android:gravity="center_vertical"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/texxx"
+            android:layout_below="@+id/re"
+            android:text="Reject Order"
+            android:layout_alignParentRight="true"
+            />
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_below="@id/re"
+            android:layout_below="@id/texxx"
             android:id="@+id/ret"
             android:layout_height="match_parent">
 
@@ -486,7 +506,7 @@
                     android:layout_marginStart="10dp"
                     android:text="HaaHoo Delivery" />
 
-                <CheckBox
+                <!--<CheckBox
                     android:id="@+id/checkBo2"
                     android:layout_width="match_parent"
                     android:textSize="12sp"
@@ -494,7 +514,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Pick From Shop" />
+                    android:text="Pick From Shop" />-->
 
 
 
@@ -509,7 +529,7 @@
 
                     android:text="Click Here To Start Dispatching"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/checkBo2"
+                    android:layout_below="@+id/checkBo1"
                     android:layout_marginTop="20dp"
                     android:id="@+id/sub"
                     android:textStyle="bold"
@@ -526,7 +546,7 @@
                     android:text="Click Here Choose Dispatch Date"
                     android:visibility="gone"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/checkBo2"
+                    android:layout_below="@+id/checkBo1"
                     android:layout_marginTop="30dp"
                     android:id="@+id/date"
                     android:textStyle="bold"

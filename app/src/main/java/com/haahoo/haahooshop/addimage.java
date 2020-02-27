@@ -166,6 +166,7 @@ public class addimage extends AppCompatActivity {
 
         File imageDirectory = new File(GridViewDemo_ImagePath);
         imageDirectory.mkdirs();
+    //    imageDirectory=context.getCacheDir();
         if (imageDirectory.isDirectory()){
             if (imageDirectory.list().length>0) {
                 String[] children = imageDirectory.list();

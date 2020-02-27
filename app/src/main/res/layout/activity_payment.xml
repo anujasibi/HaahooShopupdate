@@ -36,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:id="@+id/lm"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
@@ -173,6 +174,37 @@
         </LinearLayout>
 
     </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_below="@+id/lm"
+            android:id="@+id/bn"
+           android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:text="For Further Clarification ,Please Contact Us @ "
+            android:textSize="12sp"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="7777777777"
+            android:id="@+id/num"
+            android:layout_below="@+id/bn"
+            android:textSize="12sp"/>
+        <View
+            android:layout_below="@id/num"
+            android:layout_width="70dp"
+            android:background="@color/blu"
+            android:layout_centerHorizontal="true"
+            android:layout_height="2dp">
+
+        </View>
     </RelativeLayout>
 
 </ScrollView>

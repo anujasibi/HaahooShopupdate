@@ -18,15 +18,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
 
                 >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:id="@+id/re"
                     android:layout_height="wrap_content">
 
                     <TextView
@@ -51,13 +51,15 @@
                 </RelativeLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-
+                    android:layout_below="@id/re"
                     android:orientation="vertical"
+                    android:id="@+id/kk"
                     android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
+                        android:id="@+id/id1"
                         android:layout_marginBottom="3dp"
                         android:layout_marginRight="3dp"
                         android:layout_height="match_parent">
@@ -85,6 +87,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
+                        android:id="@+id/rec"
                         android:layout_marginBottom="10dp"
                         android:layout_height="wrap_content">
 
@@ -106,8 +109,9 @@
                 </LinearLayout>
                 <TextView
                     android:id="@+id/save"
-                    android:layout_width="match_parent"
+                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                   android:layout_below="@+id/kk"
                     android:layout_marginBottom="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -119,7 +123,7 @@
                     android:textColor="#fff"
                     android:textSize="18sp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
 

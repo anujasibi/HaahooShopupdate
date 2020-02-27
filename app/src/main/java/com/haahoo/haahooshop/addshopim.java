@@ -223,7 +223,7 @@ public class addshopim extends AppCompatActivity {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
                     bitmap = getResizedBitmap(bitmap, 400);
-                    String path = saveImage(bitmap);
+                   // String path = saveImage(bitmap);
                  //   Toast.makeText(addshopim.this, "Image Saved!", Toast.LENGTH_SHORT).show();
                     imh.setImageBitmap(bitmap);
                     uploadToServer(filePath);
@@ -241,7 +241,7 @@ public class addshopim extends AppCompatActivity {
         else if (requestCode == CAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             imh.setImageBitmap(thumbnail);
-            saveImage(thumbnail);
+          //  saveImage(thumbnail);
          //   Toast.makeText(addshopim.this, "Image Saved!", Toast.LENGTH_SHORT).show();
             Uri tempUri = getImageUri(getApplicationContext(), thumbnail);
             filePath = (getRealPathFromURI(tempUri));
@@ -251,7 +251,7 @@ public class addshopim extends AppCompatActivity {
         else if (requestCode == CCAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             imgp.setImageBitmap(thumbnail);
-            saveImage(thumbnail);
+         //   saveImage(thumbnail);
             //   Toast.makeText(addshopim.this, "Image Saved!", Toast.LENGTH_SHORT).show();
             Uri tempUri = getImageUri(getApplicationContext(), thumbnail);
             files = (getRealPathFromURI(tempUri));
@@ -265,7 +265,7 @@ public class addshopim extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
                 bitmap = getResizedBitmap(bitmap, 400);
-                String path = saveImage(bitmap);
+          //      String path = saveImage(bitmap);
                 //   Toast.makeText(addshopim.this, "Image Saved!", Toast.LENGTH_SHORT).show();
                 imgp.setImageBitmap(bitmap);
                 uploadToServe(files);

@@ -78,12 +78,17 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
         }
 
 
-        if(dataModelArrayList.get(position).getStatus().equals("Accepted")){
+        if(dataModelArrayList.get(position).getStatus().equals("accepted")){
             holder.sta.setVisibility(View.GONE);
             holder.sta1.setVisibility(View.GONE);
-            holder.pay.setVisibility(View.GONE);
             holder.statuss.setVisibility(View.VISIBLE);
             holder.status.setVisibility(View.VISIBLE);
+            if(dataModelArrayList.get(position).getPay().equals("0")){
+                holder.pay.setText("Not Done");
+            }
+            if(dataModelArrayList.get(position).getPay().equals("1")){
+                holder.pay.setText("Done");
+            }
         }
         if(dataModelArrayList.get(position).getStatus().equals("Rejected")){
             holder.sta.setVisibility(View.GONE);
@@ -193,7 +198,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.MyView
            }
        });
 
-        if(dataModelArrayList.get(position).getStatus().equals("Accepted")) {
+        if(dataModelArrayList.get(position).getStatus().equals("accepted")) {
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override

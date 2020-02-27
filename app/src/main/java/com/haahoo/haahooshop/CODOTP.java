@@ -32,7 +32,7 @@ import java.util.Map;
 public class CODOTP extends AppCompatActivity {
 
     ImageView image;
-    TextInputEditText employee_id,employee_phone,otp;
+    TextInputEditText employee_id,employee_phone,otp,receipt;
     Button verify,verifyotp;
     RelativeLayout employeeotprel;
     Context context = this;
@@ -52,6 +52,7 @@ public class CODOTP extends AppCompatActivity {
         verify = findViewById(R.id.verify);
         employeeotprel = findViewById(R.id.employeeotprel);
         otp = findViewById(R.id.otp);
+        receipt=findViewById(R.id.receipt);
         sessionManager = new SessionManager(context);
         Window window = activity.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -107,6 +108,7 @@ public class CODOTP extends AppCompatActivity {
                         Map<String,String> params = new HashMap<String, String>();
                         params.put("phone_no",employee_phone.getText().toString());
                         params.put("otp",otp.getText().toString());
+                        params.put("receipt_id",receipt.getText().toString());
 
                         return params;
                     }

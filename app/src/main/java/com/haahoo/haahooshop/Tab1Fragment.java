@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +44,8 @@ public class Tab1Fragment extends Fragment {
     ArrayList<upcomingrow> rowItems;
     ImageView back;
     private ProgressDialog dialog ;
+    ImageView img;
+    TextView textView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_tab1_fragment, container, false);
@@ -69,6 +73,11 @@ public class Tab1Fragment extends Fragment {
         dialog=new ProgressDialog(getContext(),R.style.MyAlertDialogStyle);
         dialog.setMessage("Loading");
         dialog.show();
+
+        img=view.findViewById(R.id.img);
+        textView=view.findViewById(R.id.text);
+
+        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/shop_no_order.png").into(img);
 
 
 
@@ -100,7 +109,10 @@ public class Tab1Fragment extends Fragment {
                             JSONArray dataArray  = obj.getJSONArray("data");
 
                             if(dataArray.length() == 0){
-                                Toast.makeText(getContext(),"Nothing to display",Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getContext(),"Nothing to display",Toast.LENGTH_SHORT).show();
+                                listView.setVisibility(View.GONE);
+                                img.setVisibility(View.VISIBLE);
+                                textView.setVisibility(View.VISIBLE);
                             }
 
                             for (int i = 0; i < dataArray.length(); i++) {

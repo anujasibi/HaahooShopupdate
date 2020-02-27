@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -21,8 +22,11 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".FetchLocationNew"
+        <activity android:name=".NoOrder"
             android:theme="@style/Theme.Design.NoActionBar" ></activity>
+        <activity
+            android:name=".FetchLocationNew"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity android:name=".Test" />
         <activity
             android:name=".FetchLocation"

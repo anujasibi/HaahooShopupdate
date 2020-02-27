@@ -1,16 +1,23 @@
 package com.haahoo.haahooshop;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,38 +43,40 @@ import java.util.Map;
 
 public class Payment extends Activity implements PaymentResultListener {
     private static final String TAG = Payment.class.getSimpleName();
-    private String number,email;
+    private static final int REQUEST_PHONE_CALL =1 ;
+    private String number, email;
     ImageSlider imageSlider;
-    String razorid="null";
-  //  private String URLlin = "https://testapi.creopedia.com/api_shop_app/shop_payment_det/";
- //   private String URLli = "https://testapi.creopedia.com/api_shop_app/shop_offer_images/";
-  //  private String URLlin = "https://haahoo.in/api_shop_app/shop_payment_det/";
- //   private String URLli = "https://haahoo.in/api_shop_app/shop_offer_images/";
-    private String URLlin = Global.BASE_URL+"api_shop_app/shop_payment_det/";
-    private String URLli = Global.BASE_URL+"api_shop_app/shop_offer_images/";
+    String razorid = "null";
+    //  private String URLlin = "https://testapi.creopedia.com/api_shop_app/shop_payment_det/";
+    //   private String URLli = "https://testapi.creopedia.com/api_shop_app/shop_offer_images/";
+    //  private String URLlin = "https://haahoo.in/api_shop_app/shop_payment_det/";
+    //   private String URLli = "https://haahoo.in/api_shop_app/shop_offer_images/";
+    private String URLlin = Global.BASE_URL + "api_shop_app/shop_payment_det/";
+    private String URLli = Global.BASE_URL + "api_shop_app/shop_offer_images/";
     SessionManager sessionManager;
-    Context context=this;
+    Context context = this;
     Activity activity = this;
-    List<SlideModel> array=new ArrayList<>();
+    List<SlideModel> array = new ArrayList<>();
     Button cod;
+    TextView num;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-        sessionManager=new SessionManager(this);
+        sessionManager = new SessionManager(this);
         Window window = activity.getWindow();
         //offer();
         cod = findViewById(R.id.cod);
         cod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,CODOTP.class);
+                Intent intent = new Intent(context, CODOTP.class);
                 startActivity(intent);
             }
         });
 
-       // imageSlider=findViewById(R.id.img);
+        // imageSlider=findViewById(R.id.img);
        /* ArrayList<SlideModel>imagelist=new ArrayList<>();
         imagelist.add(new SlideModel("https://1.bp.blogspot.com/-GUZsgr8my50/XJUWOhyHyaI/AAAAAAAABUo/bljp3LCS3SUtj-judzlntiETt7G294WcgCLcBGAs/s1600/fox.jpg", "Foxes live wild in the city.", true));
         imagelist.add(new SlideModel("https://1.bp.blogspot.com/-GUZsgr8my50/XJUWOhyHyaI/AAAAAAAABUo/bljp3LCS3SUtj-judzlntiETt7G294WcgCLcBGAs/s1600/fox.jpg", "Foxes live wild in the city.", true));
@@ -93,13 +102,13 @@ public class Payment extends Activity implements PaymentResultListener {
         // Payment button created by you in XML layout
         Button button = (Button) findViewById(R.id.btn_pay);
 
-        Button skip=findViewById(R.id.skip);
+        Button skip = findViewById(R.id.skip);
 
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(context,"You skipped payment",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Payment.this,MainActivity.class));
+                // Toast.makeText(context,"You skipped payment",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Payment.this, MainActivity.class));
 
             }
         });
@@ -108,6 +117,25 @@ public class Payment extends Activity implements PaymentResultListener {
             @Override
             public void onClick(View v) {
                 startPayment();
+            }
+        });
+
+
+        num = findViewById(R.id.num);
+
+        num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+
+                intent.setData(Uri.parse("tel:" + num.getText().toString()));
+                if (ContextCompat.checkSelfPermission(Payment.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(Payment.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+                }
+                else
+                {
+                    startActivity(intent);
+                }
             }
         });
     }

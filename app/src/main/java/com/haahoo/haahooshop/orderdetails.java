@@ -59,6 +59,8 @@ public class orderdetails extends AppCompatActivity {
     Activity activity = this;
     public String delivery_type="";
     EditText days,hours,min;
+    TextView texxx;
+    private String URL = Global.BASE_URL+"virtual_order_management/shop_order_accpt/";
 
     CheckBox check1,check2,check3;
 
@@ -91,7 +93,8 @@ public class orderdetails extends AppCompatActivity {
         submit=findViewById(R.id.submit);
         check1=findViewById(R.id.checkBo);
         check2=findViewById(R.id.checkBo1);
-        check3=findViewById(R.id.checkBo2);
+     //   check3=findViewById(R.id.checkBo2);
+        texxx=findViewById(R.id.texxx);
         sessionManager=new SessionManager(this);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +162,7 @@ public class orderdetails extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     delivery_type = "1";
                     check2.setChecked(false);
-                    check3.setChecked(false);
+                   // check3.setChecked(false);
                     //sessionManager.setcheck(delivery_type);
                     //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
                 }
@@ -171,24 +174,32 @@ public class orderdetails extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     delivery_type = "0";
                     check1.setChecked(false);
-                    check3.setChecked(false);
+                   // check3.setChecked(false);
                     //sessionManager.setcheck(delivery_type);
                     //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        check3.setOnClickListener(new View.OnClickListener() {
+//        check3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (((CheckBox) view).isChecked()) {
+//                    delivery_type = "2";
+//                    check2.setChecked(false);
+//                    check1.setChecked(false);
+//                    //sessionManager.setcheck(delivery_type);
+//                    //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+        texxx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (((CheckBox) view).isChecked()) {
-                    delivery_type = "2";
-                    check2.setChecked(false);
-                    check1.setChecked(false);
-                    //sessionManager.setcheck(delivery_type);
-                    //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
-                }
+                reject();
             }
         });
+
 
 
 
@@ -280,6 +291,82 @@ public class orderdetails extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+
+    private void reject(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // dialog.dismiss();
+                        //  Toast.makeText(Login.this,response,Toast.LENGTH_LONG).show();
+                        //parseData(response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String ot = jsonObject.optString("message");
+                            String status=jsonObject.optString("code");
+                            String token=jsonObject.optString("Token");
+                            //    sessionManager.setTokens(token);
+
+
+
+
+                            Log.d("otp","mm"+token);
+                            Log.d("code","mm"+status);
+                            if(status.equals("200")&&(!(ot.equals("verify")))){
+                                Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(context,Uporder.class));
+
+
+
+                            }
+
+
+                            if(!(status.equals("200"))){
+                                Toast.makeText(context, "Failed."+ot, Toast.LENGTH_LONG).show();
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d("response","hhh"+response);
+
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context,error.toString(),Toast.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("order_id",ids);
+                params.put("accepted","0");
+
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders()  {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Token " + sessionManager.getTokens());
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+
+
     }
 
     private void subuser(){
