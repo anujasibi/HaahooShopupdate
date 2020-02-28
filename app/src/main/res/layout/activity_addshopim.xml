@@ -74,12 +74,20 @@
                             android:textAlignment="center"
                             android:textSize="18dp" />
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imte"
+                            android:id="@+id/editone"
+                            android:src="@drawable/editj"
+                            android:layout_alignParentRight="true"/>
+
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:src="@drawable/cam"
                             android:textColor="#fff"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="25dp"
                             android:layout_marginBottom="20dp"
                             android:layout_below="@+id/imte"
                             android:id="@+id/img"
@@ -113,13 +121,20 @@
                             android:text="Add Shop Cover Image"
                             android:textAlignment="center"
                             android:textSize="18dp" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/im"
+                            android:id="@+id/edittwo"
+                            android:src="@drawable/editj"
+                            android:layout_alignParentRight="true"/>
 
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:src="@drawable/cam"
                             android:textColor="#fff"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="25dp"
                             android:layout_marginBottom="20dp"
                             android:layout_below="@+id/im"
                             android:id="@+id/imgp"

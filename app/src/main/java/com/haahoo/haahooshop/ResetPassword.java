@@ -97,7 +97,7 @@ public class ResetPassword extends AppCompatActivity {
                             Log.d("code","mm"+status);
                             if(status.equals("200")){
                                 Toast.makeText(ResetPassword.this, "Successful", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(ResetPassword.this, MainActivity.class);
+                                Intent intent = new Intent(ResetPassword.this, Login.class);
                                 startActivity(intent);
                             }
                             else{

@@ -72,6 +72,7 @@ public class addshopim extends AppCompatActivity {
     public String phone_no,email;
     TextView save;
     private ProgressDialog dialog ;
+    ImageView editone,edittwo;
     Activity activity = this;
     private String URLline = Global.BASE_URL+"api_shop_app/shop_det_reg/";
 
@@ -101,6 +102,23 @@ public class addshopim extends AppCompatActivity {
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
         dialog=new ProgressDialog(addshopim.this,R.style.MyAlertDialogStyle);
         requestMultiplePermissions();
+
+        editone=findViewById(R.id.editone);
+        edittwo=findViewById(R.id.edittwo);
+
+        editone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPictureDialog();
+            }
+        });
+
+        edittwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPictureDialo();
+            }
+        });
 
         imh.setOnClickListener(new View.OnClickListener() {
             @Override

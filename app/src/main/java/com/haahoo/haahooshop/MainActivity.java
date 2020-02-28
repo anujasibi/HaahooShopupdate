@@ -86,10 +86,15 @@ public class MainActivity extends AppCompatActivity {
         dialog=new ProgressDialog(MainActivity.this,R.style.MyAlertDialogStyle);
 
 
+
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,ForgotPassword.class));
+                Intent intent=new Intent(context,ForgotPassword.class);
+                intent.putExtra("phone",phoneno.getText().toString());
+                sessionManager.setphone(phoneno.getText().toString());
+                Log.d("phone","mmmm"+sessionManager.getphone());
+                startActivity(intent);
             }
         });
 
@@ -232,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if(role_type.equals("")&&payment_status.equals("Payment done")){
 
-                                Toast.makeText(MainActivity.this, "Login Failed.Please choose your role for further process", Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "Please choose your role for further process", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(MainActivity.this, choose.class);
                                 startActivity(intent);
                             }

@@ -22,8 +22,11 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".NoOrder"
-            android:theme="@style/Theme.Design.NoActionBar" ></activity>
+        <activity android:name=".ordman"></activity>
+        <activity android:name=".NoProduct" />
+        <activity
+            android:name=".NoOrder"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".FetchLocationNew"
             android:theme="@style/Theme.Design.NoActionBar" />

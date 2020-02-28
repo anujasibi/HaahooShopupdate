@@ -185,6 +185,7 @@ public class stepper extends AppCompatActivity {
 
         spinner = findViewById(R.id.spinner);
         loadSpinnerData(URL);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

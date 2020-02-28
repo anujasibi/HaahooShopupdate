@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +48,8 @@ public class viewproduct extends AppCompatActivity {
     String[]ne;
     public String image,pname,price,discount,descr,stock,email;
     private ProgressDialog dialog ;
+    ImageView img;
+    TextView textView;
 
 
    // private List<CardRecyclerViewItem> carItemList = null;
@@ -81,6 +85,11 @@ public class viewproduct extends AppCompatActivity {
         dialog=new ProgressDialog(viewproduct.this,R.style.MyAlertDialogStyle);
         dialog.setMessage("Loading");
         dialog.show();
+
+        img=findViewById(R.id.img);
+        textView=findViewById(R.id.text);
+
+        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/shopnoproduct.png").into(img);
 
         simpleList = (GridView) findViewById(R.id.card_view_recycler_list);
 
@@ -135,6 +144,8 @@ public class viewproduct extends AppCompatActivity {
 
                             if(dataArray.length() == 0){
                                 Toast.makeText(viewproduct.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                img.setVisibility(View.VISIBLE);
+                                textView.setVisibility(View.VISIBLE);
                             }
 
                             for (int i = 0; i < dataArray.length(); i++) {

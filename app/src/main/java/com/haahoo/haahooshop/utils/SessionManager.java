@@ -60,6 +60,14 @@ public class SessionManager {
 
         return  sharedPreferences.getString("PdtName","");
     }
+
+    public void setphone(String phone){
+        sharedPreferences.edit().putString("phone",phone).commit();
+    }
+    public String getphone(){
+
+        return  sharedPreferences.getString("phone","");
+    }
     public void setPdtaddvar(String pdtaddvar){
         sharedPreferences.edit().putString("pdtaddvar",pdtaddvar).commit();
     }

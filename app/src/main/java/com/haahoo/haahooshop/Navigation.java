@@ -99,6 +99,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
     TextView ear,sub,ord;
     Switch simpleSwitch;
     private String statu;
+    TextView trail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +151,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         ear=findViewById(R.id.ear);
         sub=findViewById(R.id.sub);
         ord=findViewById(R.id.ord);
+        trail=findViewById(R.id.trail);
 
         carda=findViewById(R.id.carda);
         cardb=findViewById(R.id.cardb);
@@ -456,6 +458,10 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
 
                     case R.id.change:
                         startActivity(new Intent(Navigation.this,changepassword.class));
+                        break;
+
+                    case R.id.pay:
+                        startActivity(new Intent(Navigation.this,Payment.class));
                         break;
 
 
@@ -766,6 +772,16 @@ private void notif(){
                         // amount.setText(obj.optString("total"));
                         String total=obj.optString("total");
                         String data=obj.optString("total_count");
+                        String pay=obj.optString("payment_status");
+                        if(pay.equals("0")){
+                            trail.setText("Trial Mode");
+
+                        }
+                        if(pay.equals("1")){
+                            navigationView = (NavigationView) findViewById(R.id.nav_view);
+                            Menu nav_Menu = navigationView.getMenu();
+                            nav_Menu.findItem(R.id.pay).setVisible(false);
+                        }
                         String subg=obj.optString("sub_count");
                         sub.setText(subg);
                         String order=obj.optString("vir_count");

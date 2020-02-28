@@ -57,6 +57,10 @@ public class ForgotPassword extends AppCompatActivity {
 
         editText=findViewById(R.id.description);
 
+        Bundle bundl = getIntent().getExtras();
+        final String phone = bundl.getString("phone");
+        editText.setText(phone);
+
         tt=findViewById(R.id.tt);
 
         tt.setOnClickListener(new View.OnClickListener() {

@@ -23,5 +23,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="spinnerTheme">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
 
 </resources>
