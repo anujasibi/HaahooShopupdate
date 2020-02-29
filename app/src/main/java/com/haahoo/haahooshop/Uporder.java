@@ -45,7 +45,7 @@ public class Uporder extends AppCompatActivity {
                   Uporder.super.onBackPressed();
                 }
                 if (!(intent.hasExtra("fromactivity"))) {
-                    startActivity(new Intent(Uporder.this, OrderManagement.class));
+                    startActivity(new Intent(Uporder.this, ordman.class));
 
                 }
             }
@@ -60,7 +60,7 @@ public class Uporder extends AppCompatActivity {
         }
         if (!(intent.hasExtra("fromactivity"))) {
 
-            startActivity(new Intent(Uporder.this, OrderManagement.class));
+            startActivity(new Intent(Uporder.this, ordman.class));
         }
     }
 }

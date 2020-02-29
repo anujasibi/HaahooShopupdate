@@ -120,7 +120,7 @@ public class orderhistory extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(orderhistory.this,OrderManagement.class));
+                startActivity(new Intent(orderhistory.this,ordman.class));
             }
         });
 
@@ -445,6 +445,6 @@ public class orderhistory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(orderhistory.this,OrderManagement.class));
+        startActivity(new Intent(orderhistory.this,ordman.class));
     }
 }
