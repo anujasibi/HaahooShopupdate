@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,6 +53,8 @@ public class orderhistory extends AppCompatActivity {
     private ProgressDialog dialog ;
     private Calendar myCalendar;
     ImageView imageView;
+    ImageView img;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,12 @@ public class orderhistory extends AppCompatActivity {
             }
 
         };
+
+        img=findViewById(R.id.img);
+        textView=findViewById(R.id.text);
+
+        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/noorderhistory.png").into(img);
+
 
 
 
@@ -164,6 +173,7 @@ public class orderhistory extends AppCompatActivity {
                             JSONArray dataArray  = obj.getJSONArray("data");
 
                             if(dataArray.length() == 0){
+
                                 Toast.makeText(orderhistory.this,"There is no orders for the choosen date",Toast.LENGTH_SHORT).show();
                             }
 
@@ -320,6 +330,10 @@ public class orderhistory extends AppCompatActivity {
 
                             if(dataArray.length() == 0){
                                 Toast.makeText(orderhistory.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                img.setVisibility(View.VISIBLE);
+                                textView.setVisibility(View.VISIBLE);
+                                imageView.setVisibility(View.GONE);
+                                editsearch.setVisibility(View.GONE);
                             }
 
                             for (int i = 0; i < dataArray.length(); i++) {

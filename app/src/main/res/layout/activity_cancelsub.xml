@@ -57,10 +57,29 @@
                     android:layout_height="match_parent"
                     />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/img"
+                    android:scaleType="center"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text"
+                    android:layout_alignParentBottom="true"
+
+                    android:text="Ooppss!!! Currently there is no cancelled subscription"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
+
+
 
 
 
             </RelativeLayout>
+
 
         </LinearLayout>
     </RelativeLayout>

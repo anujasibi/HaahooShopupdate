@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +45,8 @@ public class cancelsub extends AppCompatActivity {
     ArrayList<CancelPojo> rowItems;
     private ProgressDialog dialog ;
     ArrayList<String>sdate=new ArrayList<>();
+    ImageView img;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,12 @@ public class cancelsub extends AppCompatActivity {
                 startActivity(new Intent(cancelsub.this,ordman.class));
             }
         });
+
+        img=findViewById(R.id.img);
+        textView=findViewById(R.id.text);
+
+        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/cancelsubscription.png").into(img);
+
 
 
 
@@ -107,13 +117,17 @@ public class cancelsub extends AppCompatActivity {
                             String code=obj.optString("code");
                             if(code.equals("203")){
                                 Toast.makeText(cancelsub.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                img.setVisibility(View.VISIBLE);
+                                textView.setVisibility(View.VISIBLE);
                             }
 
                             JSONArray dataArray  = obj.getJSONArray("data");
 
 
                             if(dataArray.length() == 0){
-                                Toast.makeText(cancelsub.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(cancelsub.this,"Nothing to display",Toast.LENGTH_SHORT).show();
+                                img.setVisibility(View.VISIBLE);
+                                textView.setVisibility(View.VISIBLE);
                             }
 
                             for (int i = 0; i < dataArray.length(); i++) {

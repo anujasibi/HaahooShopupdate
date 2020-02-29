@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -189,6 +190,7 @@ public class stepper extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.parseColor("#008000"));
                 String country= spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 idsp=areasid.get(spinner.getSelectedItemPosition());
                 //    Toast.makeText(getApplicationContext(),country,Toast.LENGTH_LONG).show();
