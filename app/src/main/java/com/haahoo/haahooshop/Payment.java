@@ -28,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.gson.JsonObject;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 import com.razorpay.Checkout;
@@ -53,11 +54,13 @@ public class Payment extends Activity implements PaymentResultListener {
     //   private String URLli = "https://haahoo.in/api_shop_app/shop_offer_images/";
     private String URLlin = Global.BASE_URL + "api_shop_app/shop_payment_det/";
     private String URLli = Global.BASE_URL + "api_shop_app/shop_offer_images/";
+    private String url=Global.BASE_URL+"api_shop_app/set_payment_method/";
     SessionManager sessionManager;
     Context context = this;
     Activity activity = this;
     List<SlideModel> array = new ArrayList<>();
     Button cod;
+    private String ppp="null";
     TextView num;
 
     @Override
@@ -71,8 +74,11 @@ public class Payment extends Activity implements PaymentResultListener {
         cod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ppp="COD";
+                newin();
                 Intent intent = new Intent(context, CODOTP.class);
                 startActivity(intent);
+
             }
         });
 
@@ -116,7 +122,10 @@ public class Payment extends Activity implements PaymentResultListener {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ppp="Online";
+                newin();
                 startPayment();
+
             }
         });
 
@@ -308,5 +317,56 @@ public class Payment extends Activity implements PaymentResultListener {
     @Override
     public void onBackPressed() {
        startActivity(new Intent(context,MainActivity.class));
+    }
+
+    private void newin(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("response", "mm" + response);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String code = jsonObject.getString("code");
+
+                    if (code.equals("200")) {
+                        Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+
+
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String>params=new HashMap<>();
+                params.put("pay_method",ppp);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String,String>params=new HashMap<>();
+                params.put("Authorization","Token "+sessionManager.getTokens());
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 }

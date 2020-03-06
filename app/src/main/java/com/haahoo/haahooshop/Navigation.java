@@ -151,7 +151,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         ear=findViewById(R.id.ear);
         sub=findViewById(R.id.sub);
         ord=findViewById(R.id.ord);
-        trail=findViewById(R.id.trail);
+        trail=navHeader.findViewById(R.id.traile);
 
         carda=findViewById(R.id.carda);
         cardb=findViewById(R.id.cardb);
