@@ -24,6 +24,7 @@ public class Global {
     public static ArrayList<String>trr = new ArrayList<>();
     public static ArrayList<String>lis = new ArrayList<>();
     public static List<Specpojo> specpojos = new ArrayList<>();
+    public static ArrayList<String>arrayList=new ArrayList<>();
     public static HashMap<String,String> hashmap = new HashMap<String,String>();
 
     public static String name;

@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -534,8 +535,8 @@ public class addimage extends AppCompatActivity {
         Log.d("stock","mm"+sessionManager.getstock());
         RequestBody pdt_description = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getdes() );
         Log.d("desc","mm"+sessionManager.getdes());
-        RequestBody delivery_mode = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getcheck() );
-        Log.d("mode","mm"+sessionManager.getcheck());
+        RequestBody delivery_mode = RequestBody.create(MediaType.parse("text/plain"),  String.valueOf(Global.arrayList));
+        Log.d("mode","mm"+Global.arrayList);
         RequestBody distance = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getcatdistance() );
         Log.d("distance","mm"+sessionManager.getcatdistance());
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getradio() );

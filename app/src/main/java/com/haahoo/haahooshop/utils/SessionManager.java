@@ -4,12 +4,24 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+
 public class SessionManager {
 
     private SharedPreferences sharedPreferences;
 
 
     public boolean card;
+
+    public ArrayList<String>arrayList=new ArrayList<>();
+
+    public ArrayList<String> getArrayList() {
+        return arrayList;
+    }
+
+    public void setArrayList(ArrayList<String> arrayList) {
+        this.arrayList = arrayList;
+    }
 
     public SharedPreferences getSharedPreferences() {
         return sharedPreferences;
@@ -193,13 +205,13 @@ public class SessionManager {
         sharedPreferences.edit().putString("distance",distance).commit();
     }
 
-    public String getcheck(){
+    /*public String getcheck(){
 
         return  sharedPreferences.getString("check","");
     }
-    public void setcheck(String check){
+    public void setcheck(String[] check){
         sharedPreferences.edit().putString("check",check).commit();
-    }
+    }*/
     public String getsearch(){
 
         return  sharedPreferences.getString("search","");

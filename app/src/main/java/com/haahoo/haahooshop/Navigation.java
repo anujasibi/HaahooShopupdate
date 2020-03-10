@@ -36,6 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 import com.google.android.material.navigation.NavigationView;
@@ -100,6 +101,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
     Switch simpleSwitch;
     private String statu;
     TextView trail;
+    public String url=Global.BASE_URL+"api_shop_app/shop_logout/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -474,8 +476,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                         break;
 
                     case R.id.nav_privacy_policy:
-                        sessionManager.setTokens("");
-                        startActivity(new Intent(Navigation.this,MainActivity.class));
+                        logout();
                         break;
 
 
@@ -910,5 +911,45 @@ private void notif(){
         };
         queue.add(stringRequest);
 
+    }
+
+    private void logout(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    Log.d("response","mmm"+response);
+                    String code=jsonObject.getString("code");
+
+                    if(code.equals("200")){
+                        Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show();
+                        sessionManager.setTokens("");
+                        startActivity(new Intent(Navigation.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context,error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            public Map<String,String>getHeaders(){
+                Map<String,String>params=new HashMap<>();
+                params.put("Authorization", "Token " + sessionManager.getTokens());
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue=Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 }

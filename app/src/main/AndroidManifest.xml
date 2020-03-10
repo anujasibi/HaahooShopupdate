@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ordman"></activity>
+        <activity android:name=".Executive"></activity>
+        <activity android:name=".ordman" />
         <activity android:name=".NoProduct" />
         <activity
             android:name=".NoOrder"

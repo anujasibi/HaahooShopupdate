@@ -76,8 +76,8 @@ public class Payment extends Activity implements PaymentResultListener {
             public void onClick(View view) {
                 ppp="COD";
                 newin();
-                Intent intent = new Intent(context, CODOTP.class);
-                startActivity(intent);
+                //Intent intent = new Intent(context, CODOTP.class);
+               // startActivity(intent);
 
             }
         });
@@ -327,11 +327,16 @@ public class Payment extends Activity implements PaymentResultListener {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String code = jsonObject.getString("code");
+                    String message = jsonObject.getString("message");
 
-                    if (code.equals("200")) {
-                        Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                    if (message.equals("Admin will contact you soon")) {
+                        //Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(context,Executive.class));
+                    }
+                    if (message.equals("success")){
+                       // Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, CODOTP.class);
+                        startActivity(intent);
                     }
 
 

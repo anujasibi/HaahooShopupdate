@@ -148,7 +148,7 @@ public class Pincode extends AppCompatActivity {
 
                     Log.d("otp","mm"+token);
                     Log.d("code","mm"+status);
-                    if(status.equals("200")){
+                    if(status.equals("200")&&ot.equals("Success")){
                        // Toast.makeText(Pincode.this, "Successful", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(Pincode.this, Navigation.class);
                         startActivity(intent);
@@ -178,8 +178,8 @@ public class Pincode extends AppCompatActivity {
 //                        Intent intent = new Intent(Pincode.this, choose.class);
 //                        startActivity(intent);
 //                    }
-                    if (status.equals("203")){
-                        Toast.makeText(Pincode.this, "Failed", Toast.LENGTH_LONG).show();
+                    if (status.equals("200")&&ot.equals("Failed")){
+                        Toast.makeText(Pincode.this, "Failed.Invalid Pin", Toast.LENGTH_LONG).show();
                         mPinLockView.resetPinLockView();
 
 

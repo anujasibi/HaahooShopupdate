@@ -57,6 +57,7 @@ public class finaladd extends AppCompatActivity {
     TextInputEditText resell,paidamount;
     TextView save,res,paid;
     Activity activity = this;
+    ArrayList<String>arrayList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,7 @@ public class finaladd extends AppCompatActivity {
 
         checkBox1 = findViewById(R.id.checkBox);
         checkBox2 = findViewById(R.id.checkBox1);
-        checkBox3 = findViewById(R.id.checkBox2);
+     //   checkBox3 = findViewById(R.id.checkBox2);
         checkBox4 = findViewById(R.id.checkBox3);
         check=findViewById(R.id.checkBo);
         checkm=findViewById(R.id.checkBo1);
@@ -180,11 +181,16 @@ public class finaladd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (((CheckBox) view).isChecked()) {
-                    checkBox2.setChecked(false);
+                    /*checkBox2.setChecked(false);
                     checkBox3.setChecked(false);
-                    checkBox4.setChecked(false);
+                    checkBox4.setChecked(false);*/
                     delivery_type = checkBox1.getText().toString();
-                    sessionManager.setcheck(delivery_type);
+              //      sessionManager.setcheck(delivery_type);
+                    arrayList.add(delivery_type);
+                    sessionManager.setArrayList(arrayList);
+                    Global.arrayList=arrayList;
+                    Log.d("mmm","dcfvgbh"+arrayList);
+                    Log.d("mmm","dcfvgbh"+ Global.arrayList);
                  //   Toast.makeText(finaladd.this,"bhnjv"+checkBox1.getText().toString(),Toast.LENGTH_SHORT).show();
                 }
             }
@@ -194,18 +200,23 @@ public class finaladd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (((CheckBox) view).isChecked()) {
-                    checkBox1.setChecked(false);
-                    checkBox3.setChecked(false);
-                    checkBox4.setChecked(false);
+//                    checkBox1.setChecked(false);
+//                    checkBox3.setChecked(false);
+//                    checkBox4.setChecked(false);
                     delivery_type = checkBox2.getText().toString();
-                    sessionManager.setcheck(delivery_type);
+                //    sessionManager.setcheck(delivery_type);
+                    arrayList.add(delivery_type);
+                    sessionManager.setArrayList(arrayList);
+                    Global.arrayList=arrayList;
+                    Log.d("mmm","dcfvgbh"+arrayList);
+                    Log.d("mmm","dcfvgbh"+ Global.arrayList);
                  //   Toast.makeText(finaladd.this,"bhnjv"+checkBox2.getText().toString(),Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
 
-        checkBox3.setOnClickListener(new View.OnClickListener() {
+      /*  checkBox3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (((CheckBox) view).isChecked()) {
@@ -218,26 +229,30 @@ public class finaladd extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
 
         checkBox4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (((CheckBox) view).isChecked()) {
-                    checkBox1.setChecked(false);
+                    /*checkBox1.setChecked(false);
                     checkBox2.setChecked(false);
-                    checkBox3.setChecked(false);
+                    checkBox3.setChecked(false);*/
                     delivery_type = checkBox4.getText().toString();
-                    sessionManager.setcheck(delivery_type);
+                    //sessionManager.setcheck(delivery_type);
+                    arrayList.add(delivery_type);
+                    Log.d("mmm","dcfvgbh"+arrayList);
+                    Global.arrayList=arrayList;
+                    sessionManager.setArrayList(arrayList);
+                    Log.d("mmm","dcfvgbh"+   Global.arrayList);
                     //    Toast.makeText(finaladd.this,"bhnjv"+checkBox3.getText().toString(),Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
 
-        sessionManager.setcheck(delivery_type);
 
-        Log.d("gvggxxsxsssxss","mm"+delivery_type);
+
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,6 +274,7 @@ public class finaladd extends AppCompatActivity {
                         one = (RadioButton) findViewById(selectedId);
 
                         sessionManager.setradio(one.getText().toString());
+                        Log.d("gvggxxsxsssxss","mm"+ Global.arrayList);
 
                      /*   Toast.makeText(finaladd.this,
                                 one.getText(), Toast.LENGTH_SHORT).show();*/
