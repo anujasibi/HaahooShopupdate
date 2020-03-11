@@ -439,7 +439,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                         startActivity(new Intent(Navigation.this, profile.class));
                         break;
                     case R.id.nav_photos:
-                        startActivity(new Intent(Navigation.this, AddBankDetails.class));
+                        startActivity(new Intent(Navigation.this, viewbankaccounts.class));
                          break;
                     case R.id.nav_del:
                         startActivity(new Intent(Navigation.this,viewdeliveryplan.class));
@@ -467,7 +467,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
                         break;
 
 
-                    case R.id.qr:
+                    case R.id.qrr:
                         startActivity(new Intent(Navigation.this,qrcode.class));
                         break;
 

@@ -9,15 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,6 +39,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class finaladd extends AppCompatActivity {
     TextInputEditText distance;
@@ -43,6 +48,7 @@ public class finaladd extends AppCompatActivity {
     public String status="";
     public String status1="";
     public String statu="";
+    LinearLayout ln;
     ArrayList<String> areas = new ArrayList<String>();
     String delivery_type = "null";
     //String URL="https://testapi.creopedia.com/api_shop_app/list_shop_cat/ ";
@@ -52,12 +58,15 @@ public class finaladd extends AppCompatActivity {
     private RadioGroup radioSexGroup;
     private RadioButton one,two,three;
     SessionManager sessionManager;
+    ArrayList<String> areasid = new ArrayList<String>();
+    public String idsp;
     ImageView imageView;
     TextInputLayout ress,paida;
     TextInputEditText resell,paidamount;
     TextView save,res,paid;
     Activity activity = this;
     ArrayList<String>arrayList=new ArrayList<>();
+    public String urlnn= Global.BASE_URL+"api_shop_app/list_branches_main/ ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +99,7 @@ public class finaladd extends AppCompatActivity {
         checkm=findViewById(R.id.checkBo1);
         checks1=findViewById(R.id.checkBot);
         checks2=findViewById(R.id.checkBo1t);
+        ln=findViewById(R.id.ln);
 
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
         one=findViewById(R.id.radioMale);
@@ -245,6 +255,7 @@ public class finaladd extends AppCompatActivity {
                     Global.arrayList=arrayList;
                     sessionManager.setArrayList(arrayList);
                     Log.d("mmm","dcfvgbh"+   Global.arrayList);
+                   // ln.setVisibility(View.VISIBLE);
                     //    Toast.makeText(finaladd.this,"bhnjv"+checkBox3.getText().toString(),Toast.LENGTH_SHORT).show();
 
                 }
@@ -307,56 +318,77 @@ public class finaladd extends AppCompatActivity {
 //        }
 
 
-       // spinner = findViewById(R.id.spinner);
-       // loadSpinnerData(URL);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                String country= spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-//              //  idsp=areasid.get(spinner.getSelectedItemPosition());
-//                Toast.makeText(getApplicationContext(),country,Toast.LENGTH_LONG).show();
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                // DO Nothing here
-//            }
-//        });
+     /*   spinner = findViewById(R.id.spinner);
+        loadSpinnerData(URL);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String country= spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                idsp=areasid.get(spinner.getSelectedItemPosition());
+                Toast.makeText(getApplicationContext(),idsp,Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });*/
 
     }
 
 
 
-    private void loadSpinnerData(String url) {
-        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+   /* private void loadSpinnerData(String url) {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, urlnn, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject=new JSONObject(response);
-                    JSONArray jsonArray=jsonObject.getJSONArray("data");
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                        String country=jsonObject1.getString("name");
-                        String id=jsonObject1.getString("id");
+                try {
+                    Log.d("ressssssssss","mm"+response);
+                    JSONObject jsonObject = new JSONObject(response);
+                    areas.add("Please Choose Branch");
+                    areasid.add("0");
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String country = jsonObject1.getString("name");
+                        String id = jsonObject1.getString("id");
                         areas.add(country);
-                      //  areasid.add(id);
+                        areasid.add(id);
 
                     }
 
                     spinner.setAdapter(new ArrayAdapter<String>(finaladd.this, android.R.layout.simple_spinner_dropdown_item, areas));
-                }catch (JSONException e){e.printStackTrace();}
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public java.util.Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Token "+sessionManager.getTokens());
+                Log.d("token","mm"+sessionManager.getTokens());
+                return params;
+            }
+
+
+        };
+
+
         int socketTimeout = 30000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
+
     }
+*/
 
     @Override
     public void onBackPressed() {

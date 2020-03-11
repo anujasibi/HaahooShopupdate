@@ -82,7 +82,7 @@ public class cancelsub extends AppCompatActivity {
         img=findViewById(R.id.img);
         textView=findViewById(R.id.text);
 
-        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/cancelsubscription.png").into(img);
+        Picasso.get().load(Global.BASE_URL+"media/files/events_add/cancelsubscription.png").into(img);
 
 
 

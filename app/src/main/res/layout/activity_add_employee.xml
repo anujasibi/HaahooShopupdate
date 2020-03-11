@@ -59,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp">
 
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -78,11 +79,12 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/shopname"
+                                android:id="@+id/empid"
                                 android:layout_marginStart="10dp"
                                 android:background="@null"
+                                android:inputType="number"
                                 android:textSize="12sp"
-                                android:hint="Enter the Employee Name"
+                                android:hint="Enter the Employee ID"
                                 android:layout_marginLeft="10dp" />
 
                         </RelativeLayout>
@@ -90,6 +92,35 @@
                     </androidx.cardview.widget.CardView>
 
                 </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="20dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/shopname"
+                        android:layout_marginStart="10dp"
+                        android:background="@null"
+                        android:textSize="12sp"
+                        android:maxLength="10"
+                        android:hint="Enter the Employee Name"
+                        android:layout_marginLeft="10dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
 
@@ -244,6 +275,12 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:text="Delivery Boy" />
+                    <RadioButton
+                        android:id="@+id/radiojj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="Shop@Home" />
 
                 </RadioGroup>
 

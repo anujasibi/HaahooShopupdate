@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.haahoo.haahooshop.utils.Global;
 import com.squareup.picasso.Picasso;
 
 public class Executive extends AppCompatActivity {
@@ -37,7 +38,7 @@ public class Executive extends AppCompatActivity {
 // finally change the color
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
 
-        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/CustomerService.jpg").into(imageView);
+        Picasso.get().load(Global.BASE_URL+"media/files/events_add/CustomerService.jpg").into(imageView);
     }
 
     @Override

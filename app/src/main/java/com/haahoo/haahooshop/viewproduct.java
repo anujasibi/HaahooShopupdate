@@ -89,7 +89,7 @@ public class viewproduct extends AppCompatActivity {
         img=findViewById(R.id.img);
         textView=findViewById(R.id.text);
 
-        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/shopnoproduct.png").into(img);
+        Picasso.get().load(Global.BASE_URL+"media/files/events_add/shopnoproduct.png").into(img);
 
         simpleList = (GridView) findViewById(R.id.card_view_recycler_list);
 

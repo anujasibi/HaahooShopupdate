@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/rounded"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Executive"></activity>
+        <activity android:name=".viewbankaccounts"></activity>
+        <activity android:name=".Executive" />
         <activity android:name=".ordman" />
         <activity android:name=".NoProduct" />
         <activity
@@ -137,11 +138,9 @@
         <activity android:name=".ViewBranches" />
         <activity android:name=".AddEmployee" />
         <activity android:name=".AddShopBranch" />
-        <!--
-<meta-data
+<!--<meta-data
         android:name="com.razorpay.ApiKey"
-        android:value="rzp_live_MquWTYi6ypIVBE" />
-        -->
+        android:value="rzp_live_MquWTYi6ypIVBE" />-->
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_Sc2QOgXEJcedKm" />

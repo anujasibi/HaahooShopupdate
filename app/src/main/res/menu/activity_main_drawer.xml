@@ -48,7 +48,7 @@
             android:title="Payment" />
 
         <item
-            android:id="@+id/qr"
+            android:id="@+id/qrr"
             android:icon="@drawable/qr"
             android:title="Shop QR" />
 

@@ -45,7 +45,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddEmployee extends AppCompatActivity {
-    EditText empname,branch,phone,password;
+    EditText empname,branch,phone,password,empid;
     TextView submit,show,hide;
     private String Urline = Global.BASE_URL+"api_shop_app/employee_registration/";
     Context context=this;
@@ -95,16 +95,14 @@ public class AddEmployee extends AppCompatActivity {
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
         one=findViewById(R.id.radioMale);
         two=findViewById(R.id.radioFemale);
-        three=findViewById(R.id.radioFe);
+        three=findViewById(R.id.radiojj);
         password=findViewById(R.id.password);
         imageView1 = findViewById(R.id.img);
         imgp=findViewById(R.id.imgp);
+        empid=findViewById(R.id.empid);
 
 
-        int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
-        // find the radiobutton by returned id
-        one = (RadioButton) findViewById(selectedId);
 
       //  Toast.makeText(AddEmployee.this,one.getText().toString(), Toast.LENGTH_SHORT).show();
 
@@ -179,6 +177,10 @@ public class AddEmployee extends AppCompatActivity {
                 {
                     dialog.setMessage("Loading");
                     dialog.show();
+                    int selectedId = radioSexGroup.getCheckedRadioButtonId();
+
+                    // find the radiobutton by returned id
+                    one = (RadioButton) findViewById(selectedId);
                     submituser();
                 }
             }
@@ -303,7 +305,9 @@ public class AddEmployee extends AppCompatActivity {
                 params.put("phone",phone.getText().toString());
                 Log.d("phone","mm"+phone.getText().toString());
                 params.put("type",one.getText().toString());
+                params.put("id",empid.getText().toString());
                 Log.d("phone","mm"+one.getText().toString());
+                Log.d("id","mm"+empid.getText().toString());
                 return params;
             }
 

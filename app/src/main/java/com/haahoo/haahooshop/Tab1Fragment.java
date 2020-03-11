@@ -77,7 +77,7 @@ public class Tab1Fragment extends Fragment {
         img=view.findViewById(R.id.img);
         textView=view.findViewById(R.id.text);
 
-        Picasso.get().load("https://testapi.creopedia.com/media/files/events_add/shop_no_order.png").into(img);
+        Picasso.get().load(Global.BASE_URL+"media/files/events_add/shop_no_order.png").into(img);
 
 
 
