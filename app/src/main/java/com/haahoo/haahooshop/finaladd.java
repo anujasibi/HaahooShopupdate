@@ -101,10 +101,10 @@ public class finaladd extends AppCompatActivity {
         checks2=findViewById(R.id.checkBo1t);
         ln=findViewById(R.id.ln);
 
-        radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
-        one=findViewById(R.id.radioMale);
-        two=findViewById(R.id.radioFemale);
-        three=findViewById(R.id.radioFe);
+      //  radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
+       // one=findViewById(R.id.radioMale);
+    //    two=findViewById(R.id.radioFemale);
+    //    three=findViewById(R.id.radioFe);
         save=findViewById(R.id.save);
         distance=findViewById(R.id.name);
         sessionManager=new SessionManager(this);
@@ -279,18 +279,18 @@ public class finaladd extends AppCompatActivity {
                         sessionManager.setreselprice(resell.getText().toString());
                         Log.d("mmmmmmmmmmmm", "mm" + sessionManager.getreselprice());
                         sessionManager.setcatdistance(distance.getText().toString());
-                        int selectedId = radioSexGroup.getCheckedRadioButtonId();
+                //        int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
                         // find the radiobutton by returned id
-                        one = (RadioButton) findViewById(selectedId);
+                     //   one = (RadioButton) findViewById(selectedId);
 
-                        sessionManager.setradio(one.getText().toString());
+                     //   sessionManager.setradio(one.getText().toString());
                         Log.d("gvggxxsxsssxss","mm"+ Global.arrayList);
 
                      /*   Toast.makeText(finaladd.this,
                                 one.getText(), Toast.LENGTH_SHORT).show();*/
 
-                        startActivity(new Intent(finaladd.this, subscription.class));
+                        startActivity(new Intent(finaladd.this, DeliveryOptions.class));
                   //  }
                 }
             }

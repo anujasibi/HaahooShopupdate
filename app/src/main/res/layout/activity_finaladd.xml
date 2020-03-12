@@ -251,7 +251,7 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
+                <!--<RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_marginEnd="3dp"
                     android:layout_marginTop="30dp"
@@ -305,7 +305,7 @@
 
                     </RadioGroup>
 
-                </RelativeLayout>
+                </RelativeLayout>-->
 
                 <TextView
                     android:id="@+id/yut"

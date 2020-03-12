@@ -99,7 +99,7 @@ public class addimage extends AppCompatActivity {
 // finally change the color
         window.setStatusBarColor(activity.getResources().getColor(R.color.black));
         dialog=new ProgressDialog(addimage.this,R.style.MyAlertDialogStyle);
-        requestMultiplePermissions();
+
         Dexter.withActivity(this)
                 .withPermissions(
                         Manifest.permission.CAMERA,
@@ -184,6 +184,7 @@ public class addimage extends AppCompatActivity {
                 if (view.getId() == R.id.card_view_image) {
 
                     try {
+                        requestMultiplePermissions();
 //use standard intent to capture an image
                       /*  Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //we will handle the returned data in onActivityResult
@@ -559,8 +560,16 @@ public class addimage extends AppCompatActivity {
         Log.d("resell","mm"+sessionManager.getincent());
         RequestBody del_applicable = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getdels());
         Log.d("resell","mm"+sessionManager.getincent());
+        RequestBody delvry_date  = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getdelvry_date());
+        Log.d("resell","mm"+sessionManager.getdelvry_date());
+        RequestBody delvry_tym  = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getdelvry_tym());
+        Log.d("resell","mm"+sessionManager.getdelvry_tym());
+        RequestBody cancel_tym   = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getcancel_tym());
+        Log.d("resell","mm"+sessionManager.getcancel_tym());
+        RequestBody pick_tym  = RequestBody.create(MediaType.parse("text/plain"),sessionManager.getpick_tym());
+        Log.d("resell","mm"+sessionManager.getpick_tym());
         //
-        Call call = uploadAPIs.uploadImage("Token "+sessionManager.getTokens(),part,pdt_name,pdt_cat_id,pdt_spec,pdt_price,pdt_return_period,pdt_discount,stock,pdt_description,delivery_mode,distance,type,resell,max_price,subscription,sub_mode,product_owner,myshop,incentive,del_charge,del_applicable);
+        Call call = uploadAPIs.uploadImage("Token "+sessionManager.getTokens(),part,pdt_name,pdt_cat_id,pdt_spec,pdt_price,pdt_return_period,pdt_discount,stock,pdt_description,delivery_mode,distance,type,resell,max_price,subscription,sub_mode,product_owner,myshop,incentive,del_charge,del_applicable,delvry_date,delvry_tym,cancel_tym,pick_tym);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

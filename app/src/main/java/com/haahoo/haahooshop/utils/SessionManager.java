@@ -73,12 +73,41 @@ public class SessionManager {
         return  sharedPreferences.getString("PdtName","");
     }
 
+    public void setdelvry_date(String delvry_date ){
+        sharedPreferences.edit().putString("delvry_date ",delvry_date ).commit();
+    }
+    public String getdelvry_date(){
+
+        return  sharedPreferences.getString("delvry_date ","");
+    }
+    public void setdelvry_tym(String delvry_tym ){
+        sharedPreferences.edit().putString("delvry_tym ",delvry_tym ).commit();
+    }
+    public String getdelvry_tym(){
+
+        return  sharedPreferences.getString("delvry_tym ","");
+    }
+
     public void setphone(String phone){
         sharedPreferences.edit().putString("phone",phone).commit();
     }
     public String getphone(){
 
         return  sharedPreferences.getString("phone","");
+    }
+    public void setcancel_tym(String cancel_tym){
+        sharedPreferences.edit().putString("cancel_tym",cancel_tym).commit();
+    }
+    public String getcancel_tym(){
+
+        return  sharedPreferences.getString("cancel_tym","");
+    }
+    public void setpick_tym(String pick_tym){
+        sharedPreferences.edit().putString("pick_tym",pick_tym).commit();
+    }
+    public String getpick_tym(){
+
+        return  sharedPreferences.getString("pick_tym","");
     }
     public void setPdtaddvar(String pdtaddvar){
         sharedPreferences.edit().putString("pdtaddvar",pdtaddvar).commit();
