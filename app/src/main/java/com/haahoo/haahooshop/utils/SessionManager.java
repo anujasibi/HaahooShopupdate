@@ -73,6 +73,24 @@ public class SessionManager {
         return  sharedPreferences.getString("PdtName","");
     }
 
+    public void setempid(String empid){
+        sharedPreferences.edit().putString("empid",empid).commit();
+    }
+    public String getempid(){
+
+        return  sharedPreferences.getString("empid","");
+    }
+
+    public void setempbranch(String empbranch){
+        sharedPreferences.edit().putString("empbranch",empbranch).commit();
+    }
+    public String getempbranch(){
+
+        return  sharedPreferences.getString("empbranch","");
+    }
+
+
+
     public void setdelvry_date(String delvry_date ){
         sharedPreferences.edit().putString("delvry_date ",delvry_date ).commit();
     }

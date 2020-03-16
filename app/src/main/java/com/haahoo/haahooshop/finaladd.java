@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -29,6 +30,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
 import com.haahoo.haahooshop.utils.Global;
 import com.haahoo.haahooshop.utils.SessionManager;
 import com.google.android.material.textfield.TextInputEditText;
@@ -67,6 +69,9 @@ public class finaladd extends AppCompatActivity {
     Activity activity = this;
     ArrayList<String>arrayList=new ArrayList<>();
     public String urlnn= Global.BASE_URL+"api_shop_app/list_branches_main/ ";
+    public String url= Global.BASE_URL+"api_shop_app/employee_verification/";
+    EditText empid;
+    TextView Verify,verified,verifyf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,10 @@ public class finaladd extends AppCompatActivity {
         res=findViewById(R.id.res);
         ress=findViewById(R.id.ress);
         resell=findViewById(R.id.resellprice);
+        empid=findViewById(R.id.empid);
+        Verify=findViewById(R.id.veri);
+        verified=findViewById(R.id.verid);
+        verifyf=findViewById(R.id.veridf);
 
 
         checkBox1 = findViewById(R.id.checkBox);
@@ -131,6 +140,7 @@ public class finaladd extends AppCompatActivity {
 
             }
         });
+
 
         checkm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,10 +265,19 @@ public class finaladd extends AppCompatActivity {
                     Global.arrayList=arrayList;
                     sessionManager.setArrayList(arrayList);
                     Log.d("mmm","dcfvgbh"+   Global.arrayList);
-                   // ln.setVisibility(View.VISIBLE);
+                    ln.setVisibility(View.VISIBLE);
+                    empid.setVisibility(View.VISIBLE);
+                    Verify.setVisibility(View.VISIBLE);
                     //    Toast.makeText(finaladd.this,"bhnjv"+checkBox3.getText().toString(),Toast.LENGTH_SHORT).show();
 
                 }
+            }
+        });
+
+        Verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkemp();
             }
         });
 
@@ -318,7 +337,7 @@ public class finaladd extends AppCompatActivity {
 //        }
 
 
-     /*   spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         loadSpinnerData(URL);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -331,13 +350,13 @@ public class finaladd extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // DO Nothing here
             }
-        });*/
+        });
 
     }
 
 
 
-   /* private void loadSpinnerData(String url) {
+    private void loadSpinnerData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, urlnn, new Response.Listener<String>() {
             @Override
@@ -388,7 +407,48 @@ public class finaladd extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
-*/
+
+    public void checkemp(){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    Log.d("RESPONSE","MMNKBH"+response);
+                    String code=jsonObject.getString("code");
+                    if(code.equals("200")){
+                        Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
+                        verified.setVisibility(View.VISIBLE);
+                        sessionManager.setempid(empid.getText().toString());
+                        sessionManager.setempbranch(idsp);
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
+                        verifyf.setVisibility(View.VISIBLE);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Override
+            protected Map<String,String>getParams(){
+                Map<String,String>params=new HashMap<>();
+                params.put("emp_id",empid.getText().toString());
+                params.put("emp_branch",idsp);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue=Volley.newRequestQueue(finaladd.this);
+        requestQueue.add(stringRequest);
+    }
 
     @Override
     public void onBackPressed() {

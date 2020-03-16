@@ -172,7 +172,61 @@
 
                     </LinearLayout>
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:textSize="12sp"
+                        android:layout_margin="15dp"
+                        android:id="@+id/empid"
+           android:visibility="gone"
+                        android:inputType="number"
+                        android:textColor="#000"
+                        android:hint="Enter the Employee ID"/>
+
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_toEndOf="@+id/empid"
+                        android:layout_margin="15dp"
+                        android:text="Verify"
+                        android:id="@+id/veri"
+                        android:visibility="gone"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#FFF"
+                        android:background="#c40000"/>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_toEndOf="@+id/empid"
+                            android:layout_margin="15dp"
+                            android:text="Verified"
+                            android:id="@+id/verid"
+android:visibility="gone"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textColor="#FFF"
+                            android:background="#008000"/>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_toEndOf="@+id/empid"
+                            android:layout_margin="15dp"
+                            android:text="Not Verified"
+                            android:id="@+id/veridf"
+android:visibility="gone"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textColor="#FFF"
+                            android:background="#c40000"/>
+
+
+                    </RelativeLayout>
 
 
                     <TextView
@@ -181,7 +235,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="30dp"
                         android:gravity="center_vertical"
                         android:text="Resell Availability(Verification Required)"
                         android:textAlignment="center"
