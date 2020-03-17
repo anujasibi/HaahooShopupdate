@@ -71,7 +71,7 @@ public class finaladd extends AppCompatActivity {
     public String urlnn= Global.BASE_URL+"api_shop_app/list_branches_main/ ";
     public String url= Global.BASE_URL+"api_shop_app/employee_verification/";
     EditText empid;
-    TextView Verify,verified,verifyf;
+    TextView Verify,verified,verifyf,edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +118,17 @@ public class finaladd extends AppCompatActivity {
         distance=findViewById(R.id.name);
         sessionManager=new SessionManager(this);
         imageView=findViewById(R.id.imageView3);
-
+edit=findViewById(R.id.edit);
+edit.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        empid.setEnabled(true);
+        Verify.setVisibility(View.VISIBLE);
+        verified.setVisibility(View.GONE);
+        verifyf.setVisibility(View.GONE);
+        edit.setVisibility(View.GONE);
+    }
+});
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -419,11 +429,20 @@ public class finaladd extends AppCompatActivity {
                     if(code.equals("200")){
                         Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
                         verified.setVisibility(View.VISIBLE);
+                        empid.setEnabled(false);
+                        verified.setText("Verified");
                         sessionManager.setempid(empid.getText().toString());
                         sessionManager.setempbranch(idsp);
+                        edit.setVisibility(View.VISIBLE);
+
+
                     }else {
                         Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
-                        verifyf.setVisibility(View.VISIBLE);
+                        verified.setVisibility(View.VISIBLE);
+                        verified.setText("Not Verified");
+                        empid.setEnabled(false);
+                        edit.setVisibility(View.VISIBLE);
+
                     }
 
                 } catch (Exception e) {

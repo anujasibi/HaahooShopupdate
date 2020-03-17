@@ -182,7 +182,7 @@
                         android:textSize="12sp"
                         android:layout_margin="15dp"
                         android:id="@+id/empid"
-           android:visibility="gone"
+                        android:visibility="gone"
                         android:inputType="number"
                         android:textColor="#000"
                         android:hint="Enter the Employee ID"/>
@@ -201,10 +201,11 @@
                         android:textColor="#FFF"
                         android:background="#c40000"/>
                         <TextView
-                            android:layout_width="100dp"
+                            android:layout_width="70dp"
                             android:layout_height="50dp"
                             android:layout_toEndOf="@+id/empid"
-                            android:layout_margin="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="0dp"
                             android:text="Verified"
                             android:id="@+id/verid"
 android:visibility="gone"
@@ -213,17 +214,32 @@ android:visibility="gone"
                             android:textColor="#FFF"
                             android:background="#008000"/>
                         <TextView
-                            android:layout_width="100dp"
+                            android:layout_width="70dp"
                             android:layout_height="50dp"
-                            android:layout_toEndOf="@+id/empid"
-                            android:layout_margin="15dp"
-                            android:text="Not Verified"
-                            android:id="@+id/veridf"
-android:visibility="gone"
+                            android:layout_toEndOf="@+id/verid"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="Clear"
+                            android:visibility="gone"
+                            android:id="@+id/edit"
                             android:textAlignment="center"
                             android:gravity="center"
                             android:textColor="#FFF"
                             android:background="#c40000"/>
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="50dp"
+                            android:layout_toEndOf="@+id/empid"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="0dp"
+                            android:text="Not Verified"
+                            android:id="@+id/veridf"
+                            android:visibility="gone"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textColor="#FFF"
+                            android:background="#008000"/>
 
 
                     </RelativeLayout>
